@@ -1,0 +1,75 @@
+@font-face
+    font-family: "Raleway-Light"
+    src : url("~@/assets/fonts/Raleway-Light.ttf")
+
+@font-face
+    font-family: "Raleway-Bold"
+    src : url("~@/assets/fonts/Raleway-Bold.ttf")
+
+@font-face
+    font-family: "Raleway-Regular"
+    src : url("~@/assets/fonts/Raleway-Regular.ttf")
+
+@font-face
+    font-family: "Raleway-Thin"
+    src : url("~@/assets/fonts/Raleway-Thin.ttf")
+
+li
+    font-family: Raleway-Light
+    font-size: 14px
+
+h1, h2, .h2-like
+    font-family: "Raleway-Light"
+    font-size: 32px
+    font-weight: 400
+
+h3, h4, .h3-like
+    font-size:  16px
+    line-height: 32px
+    font-family: "Raleway-Regular"
+    font-weight: 400
+    &::before
+        content: '— '
+
+.non-dec
+    text-decoration: none 
+
+.transparent-title
+    font-family: "Raleway-Bold"
+    font-size: 80px
+    opacity: .05
+    line-height: 5px
+    position: relative
+    top: 30px
+    @media (max-width: $tablet-big)
+        font-size: 65px
+    @media (max-width: $phone-middle)
+        font-size: 45px
+
+.sub-title
+    display: inline
+    font-family: "Raleway-Thin"
+    font-size: 24px
+    font-weight: 400
+    padding-top: 20px
+
+p, .p-like
+    font-family: "Raleway-Light"
+    padding-top: 20px
+    line-height: 32px
+    font-size: 16px
+
+    &.sm-top-padding
+        padding-top: 0
+        
+        
+.small-text
+    font-size: 14px
+    line-height: 28px
+
+.accent-yellow
+    color: $accent-color
+.black-color
+    color: $black-text-color
+.gray-color
+    color: $gray-text-color

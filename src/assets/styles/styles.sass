@@ -98,7 +98,7 @@ label
     font-family: "Raleway-Regular"
     font-size: 14px
     display: block
-    margin-top: 25px
+    margin-top: 30px
 
     &:first-child
         margin-top: 0
@@ -110,6 +110,18 @@ input[type='text'], input[type='password'], select
     border-bottom: 1px solid $gray-text-color
     padding: 7px 0
     font-family: 'Raleway-Light'
+    transition: $transition-time
+
+    &.invalid-input
+        border-bottom: 1px solid red
+
+.input-error-message-wrapper
+    height: 1px
+    position: relative
+    & span
+        font-family: 'Raleway-Light'
+        font-size: 11px
+        color: red
 
 .flex-list
     display: flex

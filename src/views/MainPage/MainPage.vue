@@ -48,7 +48,7 @@
                 this.doScroll()
             },
             doScroll(){
-                gsap.to("main",{translateY: -this.scrollingItems[this.scrollingPosition].offsetTop, ease: "easeIn"})
+                gsap.to("main",{translateY: -this.scrollingItems[this.scrollingPosition].offsetTop, ease: "easeIn", duration: .85})
                 this.setScrollTimeOut()
             },
             setScrollTimeOut(){

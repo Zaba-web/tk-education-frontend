@@ -9,22 +9,60 @@
                 Введіть дані, вказані при реєстрації для того, щоб уівйти в свій профіль. 
             </span>
             <br><br>
-            <form>
-                <label for="auth_login" class="black-color">Логін</label>
-                <input type="text" placeholder="Уведіть ваш логін" id='auth_login'>
-                <label for="auth_password" class="black-color">Пароль</label>
-                <input type="password" placeholder="Уведіть ваш пароль" id='auth_password'>
-                <button class="black-button center" type="button">
+            <form @submit.prevent="submitForm" ref="form">
+                <label for="login" class="black-color">Логін</label>
+                <input type="text" placeholder="Уведіть ваш логін" id='login' data-minlength="3" v-model="login">
+                <label for="password" class="black-color">Пароль</label>
+                <input type="password" placeholder="Уведіть ваш пароль" id='password' data-minlength="6" v-model="password">
+                <button class="black-button center" type="submit">
                         Увійти
                 </button>
             </form>
+             <p class="form-status">
+                {{registerStatus}}
+            </p>
         </div>
     </div>
 </template>
 
 <script>
+    import Validator from "../../libs/validator.js"
+    import API from "../../libs/api"
+
     export default {
-        
+        data(){
+            return {
+                login: '',
+                password: '',
+                registerStatus: ''
+            }
+        },
+        methods: {
+            submitForm(){
+                if(Validator.getResult()) {
+                    const api = new API()
+
+                    api.post('login', {
+                        login: this.login,
+                        password: this.password
+                    }).then(response => {
+                        if(response.data.error)
+                            this.registerStatus = response.data.details
+                        else {
+                            localStorage.setItem("token", response.data.access_token)
+                            localStorage.setItem("username", response.data.user.name)
+                            localStorage.setItem("email", response.data.user.email)
+                        }
+                    }).catch( error=>console.error(error) )
+                } else {
+                    Validator.forceValidation()
+                }
+            }
+        },
+        mounted(){
+            Validator.setTargetForm(this.$refs.form)
+            Validator.setValidationObserver()
+        }
     }
 </script>
 

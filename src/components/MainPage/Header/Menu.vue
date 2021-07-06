@@ -4,9 +4,17 @@
             <img src="@/assets/images/logo.svg" alt="Виробниче навчання">
         </div>
         <div class="menu-container">
-            <ul>
-                <li>Реєстрація</li>
-                <li>Авторизація</li>
+            <ul> 
+                <li>
+                    <router-link to="SignUp">
+                        Реєстрація
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="SignIn">
+                        Авторизація
+                    </router-link>
+                </li>
             </ul>
         </div>
     </nav>
@@ -28,9 +36,13 @@ nav
         display: inline-block
         margin: 0 25px
         cursor: pointer
-        color: $gray-text-color
         position: relative
         z-index: 1
+        color: $gray-text-color
+
+        & a
+            color: $gray-text-color
+            text-decoration: none
 
         &:last-of-type
             margin-right: 0

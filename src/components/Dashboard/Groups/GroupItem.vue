@@ -50,7 +50,7 @@
     import DashboardDefaultBlock from "../DashboardDefaultBlock.vue"
     import OperationsContainer from "../Operations/OperationsContainer.vue"
 
-    import {operationsComponents} from "../../../libs/dashboardComponentsLodader"
+    import {operationsComponents} from "../../../libs/dashboardComponentsLoader"
 
     export default {
         props: {

@@ -5,7 +5,7 @@ const adminMenu = [
             {
                 title: 'Огляд',
                 link: '/admin',
-                active: true,
+                active: false,
                 icon: `
                     <svg id="dashboard" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class='default-icon-fill'>
                         <path id="Path_1141" data-name="Path 1141" d="M7.708,0H1.458A1.46,1.46,0,0,0,0,1.458v3.75A1.46,1.46,0,0,0,1.458,6.667h6.25A1.46,1.46,0,0,0,9.167,5.208V1.458A1.46,1.46,0,0,0,7.708,0Zm0,0" transform="translate(0 0)"/>

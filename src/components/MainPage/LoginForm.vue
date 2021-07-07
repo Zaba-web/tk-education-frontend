@@ -14,7 +14,7 @@
                 <input type="text" placeholder="Уведіть ваш логін" id='login' data-minlength="3" v-model="login">
                 <label for="password" class="black-color">Пароль</label>
                 <input type="password" placeholder="Уведіть ваш пароль" id='password' data-minlength="6" v-model="password">
-                <button class="black-button center" type="submit">
+                <button class="black-button center" type="submit" :class="{'button-disabled': isUserLogin}">
                         Увійти
                 </button>
             </form>
@@ -35,15 +35,21 @@
                 login: '',
                 password: '',
                 registerStatus: '',
+                isUserLogin: false,
                 validator: null
             }
         },
         methods: {
             submitForm(){
-                if(this.validator.getResult()) {
-                    const api = new API()
 
-                    api.post('login', {
+                if(this.isUserLogin){
+                    this.registerStatus = 'Ви вже авторизовані у системі'
+                    return ;
+                }
+
+                if(this.validator.getResult()) {
+                    
+                    this.api.post('login', {
                         login: this.login,
                         password: this.password
                     }).then(response => {
@@ -71,6 +77,10 @@
             }
         },
         mounted(){
+            
+            this.api = new API()
+            this.isUserLogin = this.api.ifUserLogin()
+
             this.validator = new Validator()
 
             this.validator.setTargetForm(this.$refs.form)

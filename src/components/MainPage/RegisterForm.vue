@@ -90,7 +90,7 @@
                                 <button class="black-button center" type="button" @click="previousSlide">
                                     Назад
                                 </button>
-                                <button class="black-button center" type="submit">
+                                <button class="black-button center" type="submit" :class="{'button-disabled': isUserLogin}">
                                     Завершити
                                 </button>
                             </div>
@@ -116,6 +116,7 @@
                 rightOffset: 0,
                 currentStep: 1,
                 api: null,
+                isUserLogin: false,
                 validator: null,
                 groupList: [{name:"loading"}, {"id": "loading"}],
                 registerStatus: '',
@@ -146,6 +147,11 @@
                     return ;
                 }
 
+                if(this.isUserLogin) {
+                    this.registerStatus = 'Ви вже авторизовані у системі'
+                    return ;
+                }
+
                 if(this.validator.getResult()) {
                     this.api.post('register', {
                         login: this.login,
@@ -168,6 +174,7 @@
         },
         mounted(){
             this.api = new API()
+            this.isUserLogin = this.api.ifUserLogin()
 
             this.validator = new Validator()
 

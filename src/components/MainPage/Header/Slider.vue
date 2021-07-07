@@ -47,6 +47,7 @@
                 slideLabel: "HTML",
                 interval: 5000,
                 timer: null,
+                slidesContainerHeight: 0
             }
         },
         methods: {
@@ -57,10 +58,10 @@
                 let offset = this.activeSlide > 0 ? 5 : 0
 
                 gsap.to('.slides-content-movable', {
-                    y: `-${(this.activeSlide * this.$refs.slidesContent.offsetHeight) + offset}px`,
+                    y: `-${(this.activeSlide * this.slidesContainerHeight) + offset}px`,
                     ease: "expo",
                     duration: 2
-                });
+                })  
 
                 this.slideLabel = this.slides[this.activeSlide].title
             },
@@ -85,6 +86,7 @@
         },
         mounted(){
             this.setSliderTimer()
+            this.slidesContainerHeight = this.$refs.slidesContent.offsetHeight 
         }
     }
 </script>

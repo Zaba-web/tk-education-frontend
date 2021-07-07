@@ -6,7 +6,7 @@
     padding: 0
     margin: 0
 
-header:not(.dashboard-header), section, footer
+header:not(.dashboard-header), section:not(.dashboard-section), footer
     width: 100%
     height: 100vh
     position: relative
@@ -48,6 +48,9 @@ button
     font-family: "Raleway-Regular"
     font-size: 16px
     cursor: pointer
+
+    &.button-disabled
+        cursor: not-allowed
 
     & + &
         margin-left: 35px
@@ -138,5 +141,22 @@ input[type='text'], input[type='password'], select
             &:hover
                 color: $accent-color
 
-        
+
+// scroll bar styles for webkit browsers
+::-webkit-scrollbar 
+    width: 6px
+
+::-webkit-scrollbar-track 
+    background: transparent
+    border-radius: 2px
+
+::-webkit-scrollbar-thumb 
+    background: $dark-theme-blocks-color
+
+// scroll bar styles for firefox
+*
+    scrollbar-width: thin
+    scrollbar-color: $dark-theme-blocks-color transparent
+
+  
         

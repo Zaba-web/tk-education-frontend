@@ -1,0 +1,23 @@
+.dark-theme
+    & .bg-fill-default
+        background: $dark-theme-bg-color
+    & .menu-line
+        border-right: 1px solid #30363E
+    & .menu-logo
+        fill: $accent-color
+    & .text-accent-first-color
+        color: $accent-color
+    & .default-text-color
+        color: $gray-text-color
+    & .default-icon-fill
+        transition: $transition-time
+        fill: $gray-text-color
+    & .forced-menu-item-color
+        & a
+            color: $gray-text-color !important
+    & .dashboard-menu-item-active, & .dashboard-menu-item:hover
+        background: $dark-theme-secondary-accent-color
+        &::before
+            background: $dark-theme-secondary-accent-color
+        & .default-icon-fill, & .forced-menu-item-color a
+            fill: #fff

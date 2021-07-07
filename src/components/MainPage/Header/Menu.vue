@@ -5,20 +5,64 @@
         </div>
         <div class="menu-container">
             <ul> 
-                <li>
+                <li v-if="!isUserInSystem">
                     <router-link to="SignUp">
                         Реєстрація
                     </router-link>
                 </li>
-                <li>
+                <li v-if="!isUserInSystem">
                     <router-link to="SignIn">
                         Авторизація
+                    </router-link>
+                </li>
+                <li v-if="isUserInSystem" @click='logout'>
+                    Вийти
+                </li>
+                <li v-if="isUserInSystem && accessLevel >= 1">
+                    <router-link to="">
+                        Особистий кабінет
+                    </router-link>
+                </li>
+                <li v-if="isUserInSystem && accessLevel >= 2">
+                    <router-link to="admin">
+                        Керування
                     </router-link>
                 </li>
             </ul>
         </div>
     </nav>
 </template>
+
+<script>
+    import API from '../../../libs/api.js'
+
+    export default {
+        data(){
+            return {
+                api: null,
+                isUserInSystem: false,
+                accessLevel: 0
+            }
+        },
+        methods: {
+            logout(){
+                this.api.userLogout().then(()=>{
+                    this.$router.go()
+                })
+            }
+        },
+        mounted(){
+            this.api = new API()
+            this.isUserInSystem = this.api.ifUserLogin()
+
+            if(this.isUserInSystem){
+                this.api.getUserAccessLevel().then(accessLevel => {
+                    this.accessLevel = accessLevel
+                })
+            }
+        }
+    }
+</script>
 
 <style lang="sass" scoped>
 nav

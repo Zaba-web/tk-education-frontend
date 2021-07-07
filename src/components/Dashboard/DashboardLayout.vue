@@ -69,9 +69,8 @@
         },
         methods:{
             setMenuActiveItem(groupIndex, itemIndex){
-                this.menu[groupIndex].items[this.activeMenuItem].active = false
-                this.activeMenuItem = itemIndex
-                this.menu[groupIndex].items[this.activeMenuItem].active = true
+                this.menu.map(group => group.items.map(item => item.active = false))
+                this.menu[groupIndex].items[itemIndex].active = true
             }
         },
         mounted(){

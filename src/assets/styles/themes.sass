@@ -1,6 +1,10 @@
 .dark-theme
     & .bg-fill-default
         background: $dark-theme-bg-color
+    & .bg-fill-block
+        background: $dark-theme-blocks-color
+    & .bg-fill-secondary-accent
+        background: $dark-theme-secondary-accent-color
     & .menu-line
         border-right: 1px solid #30363E
     & .menu-logo
@@ -9,9 +13,15 @@
         color: $accent-color
     & .default-text-color
         color: $gray-text-color
+    & .bright-text-color
+        color: #fff
     & .default-icon-fill
         transition: $transition-time
         fill: $gray-text-color
+        transition: $transition-time
+        &:not(.static-icon)
+            &:hover
+                fill: $dark-theme-secondary-accent-color
     & .forced-menu-item-color
         & a
             color: $gray-text-color !important
@@ -21,3 +31,24 @@
             background: $dark-theme-secondary-accent-color
         & .default-icon-fill, & .forced-menu-item-color a
             fill: #fff
+    & .dashboard-section
+        border-bottom: 1px solid #30363E
+    & .action-proposition-wrapper .cover
+        background: rgba(36, 41, 49, .9)
+    & button
+        color: #fff
+        &::before, &::after
+            border-color: #fff
+        & a
+            text-decoration: none
+            color: #fff
+    & .operations-container-icon
+        &:hover
+            background: $dark-theme-secondary-accent-color
+    & .user-input-sidebar-container
+        background: #242931
+    & .confirmation-container
+        box-shadow: rgba(1, 1, 1, .4) 0px 1px 4px
+    & .confirmation-option
+        &:hover
+            background: $dark-theme-secondary-accent-color

@@ -1,7 +1,9 @@
 <template>
     <div class="dark-theme">
         <layout :menu-to-handle="menu">
-            <transition name="fade" mode="in-out">
+            <transition 
+                enter-active-class="animate__animated animate__fadeInLeft"
+                mode="in-out">
                 <router-view></router-view>
             </transition>
         </layout>

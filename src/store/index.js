@@ -1,31 +1,40 @@
 import { createStore } from 'vuex'
-import API from '../libs/api'
+
 
 export default createStore({
 	state: {
-
+		inputSidebar: {
+			visible: false,
+			data: null,
+			content: {
+				'groupUpdate': false
+			}
+		}
 	},
 	getters: {
-		getUserData(state){
-			return state.user
+		isInputSidebarVisible(state){
+			return state.inputSidebar.visible
+		},
+
+		inputSidebarContentContent(state){
+			return state.inputSidebar.content
 		}
 	},
 	mutations: {
-		SET_USER_DATA(state, payload) {
-			state.user = payload
+		RESET_DASHBOARD_INPUT_SIDEBAR(state){
+			state.inputSidebar.data = null
+
+			for(let item in state.inputSidebar.content)
+				state.inputSidebar.content[item] = false
+		},
+		SHOW_DASHBOARD_INPUT_SIDEBAR(state, payload){
+			state.inputSidebar.visible = true
+			state.inputSidebar.content[payload.component] = true
+			state.inputSidebar.data = payload.data
 		}
 	},
 	actions: {
-		async loadUserData({commit}) {
-			const api = new API()
 
-			try {
-				const user = await api.getAllUserData()
-				commit('SET_USER_DATA', user)
-			} catch(error) {
-				console.error(error)
-			}
-		}
 	},
 	modules: {
 	}

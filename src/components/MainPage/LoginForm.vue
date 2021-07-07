@@ -34,12 +34,13 @@
             return {
                 login: '',
                 password: '',
-                registerStatus: ''
+                registerStatus: '',
+                validator: null
             }
         },
         methods: {
             submitForm(){
-                if(Validator.getResult()) {
+                if(this.validator.getResult()) {
                     const api = new API()
 
                     api.post('login', {
@@ -52,16 +53,28 @@
                             localStorage.setItem("token", response.data.access_token)
                             localStorage.setItem("username", response.data.user.name)
                             localStorage.setItem("email", response.data.user.email)
+                            
+                            switch(response.data.user.access_level){
+                                case 1:
+                                    break;
+                                case 2:
+                                    this.$router.push("admin")
+                                    break;
+                            }
                         }
-                    }).catch( error=>console.error(error) )
+                    }).catch(error =>{
+                        this.registerStatus = `Відбулась помилка ${error}`
+                    })
                 } else {
-                    Validator.forceValidation()
+                    this.validator.forceValidation()
                 }
             }
         },
         mounted(){
-            Validator.setTargetForm(this.$refs.form)
-            Validator.setValidationObserver()
+            this.validator = new Validator()
+
+            this.validator.setTargetForm(this.$refs.form)
+            this.validator.setValidationObserver()
         }
     }
 </script>

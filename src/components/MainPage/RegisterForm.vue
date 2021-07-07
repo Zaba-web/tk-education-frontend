@@ -116,6 +116,7 @@
                 rightOffset: 0,
                 currentStep: 1,
                 api: null,
+                validator: null,
                 groupList: [{name:"loading"}, {"id": "loading"}],
                 registerStatus: '',
                 login: '',
@@ -145,7 +146,7 @@
                     return ;
                 }
 
-                if(Validator.getResult()) {
+                if(this.validator.getResult()) {
                     this.api.post('register', {
                         login: this.login,
                         email: this.email,
@@ -161,19 +162,23 @@
                         this.registerStatus = "Відбулась помилка при реєстрації"
                     })
                 } else {
-                    Validator.forceValidation()
+                    this.validator.forceValidation()
                 }
             }
         },
         mounted(){
             this.api = new API()
 
-            Validator.setTargetForm(this.$refs.form)
-            Validator.setValidationObserver()
+            this.validator = new Validator()
+
+            this.validator.setTargetForm(this.$refs.form)
+            this.validator.setValidationObserver()
 
             this.api.get('groups').then(response=>{
                 let result = response.data
                 this.groupList = result
+            }).catch(error => {
+                this.registerStatus = `Відбулась помилка ${error}`
             })
         }
     }

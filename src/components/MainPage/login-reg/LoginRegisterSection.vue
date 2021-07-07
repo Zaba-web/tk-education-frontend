@@ -146,6 +146,11 @@
         padding: 65px 120px 20px 90px
         @media(max-width: $desktop-1440)
             padding: 65px 50px 20px 180px
+            position: relative
+            & .transparent-title
+                position: absolute
+                right: 0
+                top: 70px
         @media (max-width: $tablet-medium)
             padding: 65px 350px 20px 0px
         @media (max-width: $phone-big)

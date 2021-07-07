@@ -47,6 +47,7 @@
                 <dashboard-header></dashboard-header>
                 <slot></slot>
             </div>
+            <sidebar-input-container></sidebar-input-container>
         </main>
     </div>
 </template>
@@ -54,6 +55,7 @@
 <script>
     import DashboardMenuItem from '../Dashboard/DashboardMenuItem.vue'
     import DashboardHeader from '../Dashboard/DashboardHeader.vue'
+    import UserInputSidebarContainer from '../Dashboard/UserInputSidebar/UserInputSidebarContainer.vue'
 
     export default {
         data(){
@@ -65,7 +67,8 @@
         props:["menuToHandle"],
         components:{
             "dashboard-menu-item": DashboardMenuItem,
-            "dashboard-header": DashboardHeader
+            "dashboard-header": DashboardHeader,
+            "sidebar-input-container": UserInputSidebarContainer
         },
         methods:{
             setMenuActiveItem(groupIndex, itemIndex){
@@ -75,6 +78,15 @@
         },
         mounted(){
             this.menu = this.menuToHandle
+
+            this.$nextTick(()=>{
+                this.menu.map(group => {
+                    group.items.map(item => {
+                        item.active = false
+                        if(this.$route.path == item.link) item.active = true
+                    })
+                })
+            })
         }
     }
 </script>

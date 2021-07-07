@@ -21,6 +21,7 @@ const routes = [
 	},
 	{
 		path: '/logout',
+		component: mainPageRoutes[0].component,
 		beforeEnter(){
 			api.userLogout().then(()=>{
 				router.push('/')

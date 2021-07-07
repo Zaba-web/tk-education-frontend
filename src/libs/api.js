@@ -11,6 +11,7 @@ class API {
         if(localStorage.getItem('token')){
             this.axiosInstance.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('token')}`
             this.axiosInstance.defaults.headers.get['Authorization'] = `Bearer ${localStorage.getItem('token')}`
+            this.axiosInstance.defaults.headers.delete['Authorization'] = `Bearer ${localStorage.getItem('token')}`
         }
     }
 
@@ -27,6 +28,19 @@ class API {
 
     get(path, params = '', callback){
         let result = this.axiosInstance.get(`${serverLocation}${path}/${params}`)
+        
+        if(!callback) 
+            return result
+    
+        result.then(response=>{
+            callback(response)
+        })
+    }
+
+    delete(path, callback){
+        this.authorize()
+
+        let result = this.axiosInstance.delete(`${serverLocation}${path}`)
         
         if(!callback) 
             return result
@@ -65,15 +79,16 @@ class API {
         })
     }
 
-    getAllUserData(){
+    getSecureData(path){
         this.authorize()
 
-        return this.get('user/userdata').then(response => {
+        return this.get(path).then(response => {
             return response.data
         }).catch(error => {
             alert(error) // temponary
         })
     }
+
 }
 
 export default API

@@ -35,37 +35,54 @@
             <group-list></group-list>
         </dashboard-section>
         <dashboard-section title="Останні зареєстровані користувачі" subtitle="Користувачі, які нещодавно зареєструвались">
-
+            <dashboard-table 
+            :table-header="['Дата реєстрації', 'Логін', 'Ім\'я', 'Статус']"
+            :table-content="this.lastUsers"
+            ></dashboard-table>
+        </dashboard-section>
+        <dashboard-section title="Розклад" subtitle="Дні, у які проходить виробниче навчання">
+            <schedule></schedule>
         </dashboard-section>
     </div>
 </template>
 
 <script>
-    import {structureComponents} from "../../libs/dashboardComponentsLoader"
-    import DashboardActionProposition from "../../components/Dashboard/DashboardActionProposition.vue"
-    import DashboardAdminOverviewDiagram from "../../components/Dashboard/DashboardAdminOverviewDiagram.vue"
-    import GroupList from "../../components/Dashboard/Groups/GroupList.vue"
+    import {structureComponents} from "@/libs/dashboardComponentsLoader"
+    import DashboardActionProposition from "@/components/Dashboard/DashboardActionProposition.vue"
+    import DashboardAdminOverviewDiagram from "@/components/Dashboard/DashboardAdminOverviewDiagram.vue"
+    import GroupList from "@/components/Dashboard/Groups/GroupList.vue"
+    import ScheduleControl from '@/components/Dashboard/Schedule/ScheduleControl.vue'
 
-    import API from "../../libs/api"
+    import API from "@/libs/api"
 
     export default {
         components: {
             ...structureComponents,
             "action-proposition": DashboardActionProposition,
             "diagram": DashboardAdminOverviewDiagram,
-            "group-list": GroupList
+            "group-list": GroupList,
+            'schedule': ScheduleControl
         },
         data(){
             return {
                 api: {},
                 name: '',
-                userCount: 0
+                userCount: 0,
+                lastUsers: [
+                    
+                ]
             }
         },
         mounted(){
             const api = new API()
 
             api.getSecureData('user/data/count/all').then(res => this.userCount = res)
+            api.getSecureData('user/data/list/5').then(res => {
+                for(let element in res) {
+                    let status = res[element].confirmed == 1 ? `<span class='green-color'>Підтверджено</span>` : `<span class='yellow-color'>Очікує</span>`
+                    this.lastUsers.unshift([res[element].created_at, res[element].login, res[element].name, status])
+                }
+            })
             
             this.name = localStorage.getItem('username')
         }

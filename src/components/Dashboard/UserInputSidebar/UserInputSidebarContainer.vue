@@ -5,8 +5,20 @@
         mode="in-out"
     >
         <div class="user-input-sidebar-container" v-if="visible">
-            <div v-if="mode.groupCreate">GroupCreate</div>
-            <div v-if="mode.groupUpdate">GroupUpdate</div>
+            <div class="close-contianer" @click="closeUserInputSidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17.889" height="11.339" viewBox="0 0 17.889 11.339" class="default-icon-fill">
+                    <rect id="Rectangle_635" data-name="Rectangle 635" width="10" height="1" transform="translate(0 5.365)" />
+                    <rect id="Rectangle_636" data-name="Rectangle 636" width="8" height="1" transform="translate(11.525 10.632) rotate(-45)" />
+                    <rect id="Rectangle_637" data-name="Rectangle 637" width="8" height="1" transform="translate(12.232) rotate(45)" />
+                </svg>
+            </div>
+            <div class="text-block">
+                <span class="h3-like bright-text-color">{{data.title}}</span>
+                <p class="sm-top-padding default-text-color less-size">
+                    {{data.description}}
+                </p>
+            </div>
+            <group-edit v-if="mode['groupEdit']"></group-edit>
         </div>
     </transition>
 </template>
@@ -17,11 +29,26 @@
     right: 0
     top: 0
     width: 30vw
+    max-width: 400px
     height: 100vh
+    box-sizing: border-box
+    padding: 25px
+
+    & .close-contianer
+        position: absolute
+        right: 25px
+        top: 30px
+        cursor: pointer
+        transition: $transition-time
+
+        &:hover
+            right: 20px
+.text-block
+    margin-bottom: 25px
 </style>
 
 <script>
-    import 'animate.css'
+    import GroupEdit from "@/components/Dashboard/Groups/GroupEdit"
 
     export default {
         computed: {
@@ -30,6 +57,17 @@
             },
             visible(){
                 return this.$store.getters.isInputSidebarVisible
+            },
+            data(){
+                return this.$store.getters.inputSidebarContentData
+            }
+        },
+        components: {
+            'group-edit': GroupEdit
+        },
+        methods: {
+            closeUserInputSidebar(){
+                this.$store.commit('RESET_DASHBOARD_INPUT_SIDEBAR')
             }
         }
     }

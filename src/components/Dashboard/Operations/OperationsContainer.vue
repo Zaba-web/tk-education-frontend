@@ -52,7 +52,7 @@
         transition: $transition-time
 .operations-container
     width: 34px
-    box-shadow: rgba(1, 1, 1, .4) 0px 1px 4px;
+    box-shadow: rgba(1, 1, 1, .4) 0px 1px 4px
     padding: 10px 3px
     position: absolute
     top: 0

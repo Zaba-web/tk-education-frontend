@@ -65,10 +65,9 @@
         mounted(){
             const api = new API()
 
-            api.getSecureData('user/data/count/all').then(res => {this.userCount = res})
+            api.getSecureData('user/data/count/all').then(res => this.userCount = res)
             
             this.name = localStorage.getItem('username')
-
         }
     }
 </script>

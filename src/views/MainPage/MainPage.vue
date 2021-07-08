@@ -31,6 +31,10 @@
             }
         },
         methods: {
+            resetScrollToTop(){
+                this.scrollingPosition = 0
+                this.doScroll()
+            },
             scrollBottom(){
                 if(this.scrollingPaused) return
 
@@ -57,10 +61,12 @@
             }
         },
         mounted(){
+            this.resetScrollToTop()
+
             // detecting if user has an IOS device
             let isIOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
             
-            // if it is an IOS device or device that has small display then custom scroll won't be applied
+            // if it is an IOS device or device that has small display then custom scroll wouldn't be applied
             if(isIOS || window.innerWidth <= 390) {
                 document.querySelector("body").style.overflowY = "scroll"
                 return ;

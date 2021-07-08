@@ -5,11 +5,16 @@ export default createStore({
 	state: {
 		inputSidebar: {
 			visible: false,
-			data: null,
+			data: {
+				title: '',
+				description: '',
+				meta: null
+			},
 			content: {
-				'groupUpdate': false
+				'groupEdit': false
 			}
-		}
+		},
+		lastUpdated: ''
 	},
 	getters: {
 		isInputSidebarVisible(state){
@@ -18,11 +23,21 @@ export default createStore({
 
 		inputSidebarContentContent(state){
 			return state.inputSidebar.content
+		},
+
+		inputSidebarContentData(state){
+			return state.inputSidebar.data
 		}
 	},
 	mutations: {
 		RESET_DASHBOARD_INPUT_SIDEBAR(state){
-			state.inputSidebar.data = null
+			state.inputSidebar.data = {
+				title: '',
+				description: '',
+				meta: null
+			}
+
+			state.inputSidebar.visible = false
 
 			for(let item in state.inputSidebar.content)
 				state.inputSidebar.content[item] = false
@@ -31,6 +46,10 @@ export default createStore({
 			state.inputSidebar.visible = true
 			state.inputSidebar.content[payload.component] = true
 			state.inputSidebar.data = payload.data
+		},
+		UPDATE_LIST(state, payload){
+			document.querySelector(payload).click()
+			state.lastUpdated = payload
 		}
 	},
 	actions: {

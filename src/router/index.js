@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import mainPageRoutes from '../static/routes/mainPageRoutes'
-import adminRoutes from '../static/routes/adminRoutes'
+import mainPageRoutes from '@/static/routes/mainPageRoutes'
+import adminRoutes from '@/static/routes/adminRoutes'
 
-import AdminLayout from '../views/Admin/AdminLayout.vue'
+import AdminLayout from '@/views/Admin/AdminLayout.vue'
 
-import API from '../libs/api'
+import API from '@/libs/api'
+
+import store from '@/store/index'
 
 const api = new API()
 
@@ -49,6 +51,8 @@ router.beforeEach((to, from, next) => {
 				next(from.path || '/')
 				return ;
 			}
+
+			store.commit('RESET_DASHBOARD_INPUT_SIDEBAR')
 
 			next()
 		})

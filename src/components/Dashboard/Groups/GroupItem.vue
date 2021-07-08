@@ -33,7 +33,14 @@
                         </svg>
                     </router-link>
                 </operation>
-                <edit component-to-open="groupEdit" :additional-data="group.id"></edit>
+                <edit 
+                    component-to-open="groupEdit" 
+                    :additional-data="{
+                        title: 'Редагувати групу',
+                        description: 'Для редагування обраної групи скористайтесь відповідною формою знизу.',
+                        meta: group.id
+                    }"
+                ></edit>
                 <delete :path="`groups/delete/${group.id}`" @deletedSuccessful="deletedSuccessful"></delete>
             </operations-container>
         </default-block>
@@ -47,10 +54,10 @@
 </template>
 
 <script>
-    import DashboardDefaultBlock from "../DashboardDefaultBlock.vue"
-    import OperationsContainer from "../Operations/OperationsContainer.vue"
+    import DashboardDefaultBlock from "@/components/Dashboard/DashboardDefaultBlock.vue"
+    import OperationsContainer from "@/components/Dashboard/Operations/OperationsContainer.vue"
 
-    import {operationsComponents} from "../../../libs/dashboardComponentsLoader"
+    import {operationsComponents} from "@/libs/dashboardComponentsLoader"
 
     export default {
         props: {

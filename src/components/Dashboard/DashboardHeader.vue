@@ -6,16 +6,7 @@
             </span>
         </div>
         <div class="operation-icons-container">
-            <div class="icon-container">
-                <svg id="call-split" xmlns="http://www.w3.org/2000/svg" width="16.126" height="16.126" viewBox="0 0 16.126 16.126" class="default-icon-fill">
-                    <g id="Group_584" data-name="Group 584">
-                        <g id="Group_583" data-name="Group 583">
-                        <path id="Path_1740" data-name="Path 1740" d="M6.047,0H0V6.047L2.313,3.734,7.055,8.481v7.645H9.071V7.645L3.734,2.313Z" />
-                        <path id="Path_1741" data-name="Path 1741" d="M201.443,0l2.313,2.313-2.9,2.9,1.426,1.426,2.9-2.9,2.313,2.313V0Z" transform="translate(-191.364)" />
-                        </g>
-                    </g>
-                </svg>
-            </div>
+            <color-theme-switcher></color-theme-switcher>
             <div class="icon-container">
                 <svg id="Group_520" data-name="Group 520" xmlns="http://www.w3.org/2000/svg" width="16.576" height="17.023" viewBox="0 0 16.576 17.023" class="default-icon-fill">
                     <path id="Path_1162" data-name="Path 1162" d="M23,10.377,21.435,9.153a6.16,6.16,0,0,0,.037-.643,5.974,5.974,0,0,0-.037-.643L23,6.644a.767.767,0,0,0,.185-.977L21.559,2.851a.754.754,0,0,0-.941-.338l-1.846.741a6.33,6.33,0,0,0-1.109-.643L17.382.653A.753.753,0,0,0,16.63,0H13.368a.751.751,0,0,0-.75.647l-.282,1.965a6.525,6.525,0,0,0-1.106.643L9.378,2.512a.769.769,0,0,0-.934.333L6.815,5.664A.763.763,0,0,0,7,6.646L8.564,7.869a5.612,5.612,0,0,0,0,1.285L7,10.378a.767.767,0,0,0-.184.977L8.44,14.171a.753.753,0,0,0,.941.338l1.846-.741a6.386,6.386,0,0,0,1.108.643l.281,1.958a.753.753,0,0,0,.752.654h3.263a.752.752,0,0,0,.751-.647l.282-1.965a6.556,6.556,0,0,0,1.106-.644l1.851.743a.762.762,0,0,0,.278.052.749.749,0,0,0,.656-.384l1.634-2.83A.766.766,0,0,0,23,10.377Zm-8,.972a2.837,2.837,0,1,1,2.837-2.837A2.84,2.84,0,0,1,15,11.348Z" transform="translate(-6.71)" />
@@ -34,6 +25,8 @@
 </template>
 
 <script>
+    import DashboardColorThemeController from '@/components/Dashboard/DashboardColorThemeController.vue'
+
     export default {
         data(){
             return {
@@ -42,6 +35,9 @@
         },
         mounted(){
             this.userName = localStorage.getItem("username")
+        },
+        components: {
+            'color-theme-switcher': DashboardColorThemeController
         }
     }
 </script>
@@ -55,6 +51,7 @@ header
 .operation-icons-container
     display: flex
     gap: 20px
+    align-items: center
     & .icon-container
         cursor: pointer
 </style>

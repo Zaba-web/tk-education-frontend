@@ -1,0 +1,72 @@
+.light-theme
+    & .bg-fill-default
+        background: $light-theme-bg-color
+    & .bg-fill-block
+        background: $light-theme-blocks-color
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px
+    & .bg-fill-secondary-accent
+        background: $light-theme-secondary-accnet-color
+    & .menu-line
+        border-right: 1px solid rgba(194, 194, 194, .22)
+    & .menu-logo
+        fill: $black-text-color
+    & .text-accent-first-color
+        color: $black-text-color
+    & .default-text-color
+        color: $light-theme-text-color
+    & .bright-text-color
+        color: $black-text-color
+    & .default-icon-fill
+        fill: $black-text-color
+        transition: $transition-time
+        &:not(.static-icon)
+            &:hover
+                fill: $light-theme-secondary-accnet-color
+    & .forced-menu-item-color
+        & a
+            color: $light-theme-text-color !important
+    & .dashboard-menu-item-active, & .dashboard-menu-item:hover
+        background: $light-theme-secondary-accnet-color
+        &::before
+            background: $light-theme-secondary-accnet-color
+        & .default-icon-fill, & .forced-menu-item-color a
+            fill: #fff
+        & a
+            color: #fff !important
+    & .dashboard-section
+        border-bottom: 1px solid #C2C2C2
+    & .action-proposition-wrapper .cover
+        background: rgba(231, 232, 233, .9)
+    & button
+        color: $black-text-color
+        &::before, &::after
+            border-color: $black-text-color
+        & a
+            text-decoration: none
+            color: $black-text-color
+    & .operations-container-icon
+        &:hover
+            background: $light-theme-secondary-accnet-color
+    & .user-input-sidebar-container
+        background: #E7E8E9
+    & .confirmation-container
+        box-shadow: rgba(1, 1, 1, .4) 0px 1px 4px
+    & .confirmation-option
+        &:hover
+            background: $light-theme-secondary-accnet-color
+    & input[type='text'], & input[type='password'], & select
+        background: transparent
+        color: $light-theme-text-color
+    & th
+        color: $black-text-color
+    & td
+        border-bottom: 1px solid #F2F2F2
+    & .schedule-day-container, & .schedule-day-container > div
+        background: #E7E8E9
+        &::before
+            background: #606060
+            opacity: .1
+        & > div
+            color: $black-text-color
+    & .schedule-day-container-active
+        background: $light-theme-secondary-accnet-color !important

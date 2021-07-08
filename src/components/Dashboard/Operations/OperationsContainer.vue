@@ -20,8 +20,6 @@
 </template>
 
 <script>
-    import 'animate.css'
-
     export default {
         data(){
             return {

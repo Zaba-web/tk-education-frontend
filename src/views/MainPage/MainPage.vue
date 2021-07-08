@@ -8,13 +8,13 @@
 </template>
 
 <script>
-    import MainHeader from '../../components/MainPage/Header/Header.vue'
-    import InfoSection from '../../components/MainPage/InfoSection/InfoSection.vue'
-    import LoginRegisterSection from '../../components/MainPage/login-reg/LoginRegisterSection.vue'
-    import Footer from '../../components/MainPage/Footer/Footer.vue'
+    import MainHeader from '@/components/MainPage/Header/Header.vue'
+    import InfoSection from '@/components/MainPage/InfoSection/InfoSection.vue'
+    import LoginRegisterSection from '@/components/MainPage/login-reg/LoginRegisterSection.vue'
+    import Footer from '@/components/MainPage/Footer/Footer.vue'
 
     import gsap from 'gsap'
-    import Swipe from '../../libs/swiper.js'
+    import Swipe from '@/libs/swiper.js'
 
     export default {
         components:{
@@ -61,8 +61,6 @@
             }
         },
         mounted(){
-            this.resetScrollToTop()
-
             // detecting if user has an IOS device
             let isIOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
             
@@ -74,6 +72,8 @@
 
             // get all full-screen sections
             this.scrollingItems = document.querySelector("main").children
+
+            this.resetScrollToTop()
 
             window.addEventListener('wheel', (event)=>{
                 if (event.deltaY < 0) this.scrollTop()

@@ -16,7 +16,6 @@
     & .bright-text-color
         color: #fff
     & .default-icon-fill
-        transition: $transition-time
         fill: $gray-text-color
         transition: $transition-time
         &:not(.static-icon)
@@ -52,3 +51,19 @@
     & .confirmation-option
         &:hover
             background: $dark-theme-secondary-accent-color
+    & input[type='text'], & input[type='password'], & select
+        background: transparent
+        color: $gray-text-color
+    & th
+        color: $accent-color 
+    & td
+        border-bottom: 1px solid #2D333B
+    & .schedule-day-container, & .schedule-day-container > div
+        background: #30363E
+        &::before
+            background: #606060
+            opacity: .5
+        & > div
+            color: #fff
+    & .schedule-day-container-active
+        background: $dark-theme-secondary-accent-color !important

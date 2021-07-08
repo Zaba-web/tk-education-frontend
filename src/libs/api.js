@@ -7,14 +7,20 @@ class API {
         this.axiosInstance = axios.create()
     }
 
+    getServerLocation(){
+        return serverLocation
+    }
+
     authorize(){
         if(localStorage.getItem('token')){
             this.axiosInstance.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('token')}`
             this.axiosInstance.defaults.headers.get['Authorization'] = `Bearer ${localStorage.getItem('token')}`
             this.axiosInstance.defaults.headers.delete['Authorization'] = `Bearer ${localStorage.getItem('token')}`
+            this.axiosInstance.defaults.headers.put['Authorization'] = `Bearer ${localStorage.getItem('token')}`
         }
     }
 
+    
     post(path, data, callback){
         let result = this.axiosInstance.post(`${serverLocation}${path}`, data)
         
@@ -41,6 +47,18 @@ class API {
         this.authorize()
 
         let result = this.axiosInstance.delete(`${serverLocation}${path}`)
+        
+        if(!callback) 
+            return result
+    
+        result.then(response=>{
+            callback(response)
+        })
+    }
+
+    put(path, data, callback){
+        this.authorize()
+        let result = this.axiosInstance.put(`${serverLocation}${path}`, data)
         
         if(!callback) 
             return result

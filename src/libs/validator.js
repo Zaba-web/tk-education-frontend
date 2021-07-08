@@ -1,8 +1,9 @@
+import API from '@/libs/api'
+
 class Validator {
     constructor(){
         this.targetForm = null
         this.inputList = null
-        this.isFormValid = false
         this.autoSendToServer = false
         this.inputValidationStatus = {}
     
@@ -41,15 +42,38 @@ class Validator {
             }
         }
     }
-    setTargetForm(el, sentToServer = false){
+    setTargetForm(el, sentToServer = false, method, path, filfilled, rejected){
         this.targetForm = el
         this.autoSendToServer = sentToServer
 
-        if(this.autoSendToServer) this.setCustomSubmit()
+        if(this.autoSendToServer) 
+            this.setCustomSubmit(method, path, filfilled, rejected)
+    
     }
-    setCustomSubmit(){
+    setCustomSubmit(method, path, filfilled, rejected){
         this.targetForm.onsubmit = event => {
             event.preventDefault()
+
+            this.forceValidation()
+
+            if(!this.getResult()) return ;
+
+            const formData = {}
+            
+            Array.prototype.map.call(this.inputList, input => {
+                formData[input.getAttribute('name')] = input.value
+            })
+
+            const api = new API()
+            
+            // if specified method exists
+            if(api[method]) {
+                return api[method](path, formData).then(response => {
+                    filfilled(response)
+                }).catch(error => {
+                    rejected(error)
+                })
+            }
         }
     }
     deleteErrorElement(item){

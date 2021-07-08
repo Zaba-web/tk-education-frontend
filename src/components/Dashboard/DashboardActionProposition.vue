@@ -16,16 +16,14 @@
             'image': String,
             'text': String
         },
-        data(){
-            return {
-                imageLink: 'test'
-            }
-        },
-        mounted(){
-            try {
-                this.imageLink = require(`@/assets/images/${this.image}`)
-            } catch {
-                console.error(`Не вдається завантажити зображення ${this.image}`)
+        computed: {
+            imageLink(){
+                try {
+                    return require(`@/assets/images/${this.image}`)
+                } catch {
+                    console.error(`Не вдається завантажити зображення ${this.image}`)
+                    return ''
+                }
             }
         }
     }

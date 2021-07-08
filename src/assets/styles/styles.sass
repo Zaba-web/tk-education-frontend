@@ -1,6 +1,7 @@
 @import './vars.sass'
 @import './typographics.sass'
-@import './themes.sass'
+@import './dark-theme.sass'
+@import './light-theme.sass'
 
 *
     padding: 0
@@ -116,6 +117,9 @@ input[type='text'], input[type='password'], select
     font-family: 'Raleway-Light'
     transition: $transition-time
 
+    &.full-size
+        width: 100%
+
     &.invalid-input
         border-bottom: 1px solid red
 
@@ -157,6 +161,27 @@ input[type='text'], input[type='password'], select
 *
     scrollbar-width: thin
     scrollbar-color: $dark-theme-blocks-color transparent
+
+.dashboard-lists-action-icon-block
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    & svg
+        width: 150px
+        height: 150px
+        opacity: .1
+        cursor: pointer
+
+table
+    th, td
+        text-align: left
+        font-weight: 400
+    td 
+        padding: 10px 0 !important
+    tr:last-child
+        & td
+            border-bottom: 0
 
   
         

@@ -67,3 +67,16 @@
             color: #fff
     & .schedule-day-container-active
         background: $dark-theme-secondary-accent-color !important
+    & *::selection, & *::-moz-selection
+        background: $dark-theme-secondary-accent-color
+    & .sequence-list
+        & span
+            color: $gray-text-color !important
+    & .instruction-item-contianer::after, & .instruction-item-contianer::before
+        background: #30363E 
+    & .instruction-item-contianer.filled::before
+        background: $dark-theme-secondary-accent-color
+    & .user_status.offline 
+        background: #30363E
+    & .user_status.online
+        background: $dark-theme-secondary-accent-color

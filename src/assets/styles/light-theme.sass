@@ -70,3 +70,9 @@
             color: $black-text-color
     & .schedule-day-container-active
         background: $light-theme-secondary-accnet-color !important
+    & *::selection, & *::-moz-selection
+        background: $light-theme-secondary-accnet-color
+    & .instruction-item-contianer::after, & .instruction-item-contianer::before
+        background: #C2C2C2
+    & .instruction-item-contianer.filled::before
+        background: $light-theme-secondary-accnet-color

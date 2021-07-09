@@ -33,7 +33,7 @@
 .action-proposition-wrapper
     width: 30%
     min-width: 220px
-    height: 168px
+    height: 220px
     position: relative
     background-size: cover !important
     background-position: top top !important

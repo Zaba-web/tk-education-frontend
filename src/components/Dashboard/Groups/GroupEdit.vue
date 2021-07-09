@@ -45,10 +45,10 @@
                 validator.setTargetForm(this.$refs.form, true, 'put', `admin/groups/update/${this.groupId}`, 
                 response => {
                     this.$store.commit('UPDATE_LIST', '.group-list-reload')
-                    console.log(response)
+                    this.$emit('onsuccess', response.data)
                 }, 
-                error=>{
-                    console.log(error)
+                error => {
+                    this.$emit('onerror', error)
                 })
 
                 validator.setValidationObserver()

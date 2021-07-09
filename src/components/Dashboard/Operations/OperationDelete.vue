@@ -68,14 +68,21 @@
                 const api = new API()
 
                 api.getUserAccessLevel().then(accessLevel => {
-                    if(accessLevel == 2) return api.delete(this.path)
+                    if(accessLevel == 2) 
+                        return api.delete(this.path)
                 }).then(response => {
-                    if(response.data.type == "success") {
-                        alert("ok") // temp
+                    this.$store.commit('ADD_NEW_MESSAGE', response.data)
+
+                    if(response.data.type == "success") 
                         this.$emit('deletedSuccessful')
-                    }
-                }).catch(()=>{
-                    alert("error") // temp
+                    
+                }).catch(error => {
+                    this.$store.commit('ADD_NEW_MESSAGE', {
+                        title: "Серверна помилка",
+                        msg: "Відбулась критична помилка на стороні серверу. Перегляньте консоль для детальної інформації",
+                        type: "error"
+                    })
+                    console.error(error) 
                 })
                 
             }

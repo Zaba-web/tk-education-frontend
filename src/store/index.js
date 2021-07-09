@@ -14,7 +14,8 @@ export default createStore({
 				'groupEdit': false
 			}
 		},
-		lastUpdated: ''
+		lastUpdated: '',
+		messages: []
 	},
 	getters: {
 		isInputSidebarVisible(state){
@@ -27,6 +28,10 @@ export default createStore({
 
 		inputSidebarContentData(state){
 			return state.inputSidebar.data
+		},
+
+		getAllMessages(state){
+			return state.messages
 		}
 	},
 	mutations: {
@@ -50,6 +55,12 @@ export default createStore({
 		UPDATE_LIST(state, payload){
 			document.querySelector(payload).click()
 			state.lastUpdated = payload
+		},
+		ADD_NEW_MESSAGE(state, payload){
+			state.messages.push(payload)
+		},
+		REMOVE_MESSAGE(state, payload){
+			state.messages.splice(payload, 1)
 		}
 	},
 	actions: {

@@ -32,7 +32,7 @@
             </inline-container>
         </dashboard-section>
         <dashboard-section title="Зареєстровані групи" subtitle="Перелік зареєстрованих груп">
-            <group-list></group-list>
+            <group-list reloadable="true"></group-list>
         </dashboard-section>
         <dashboard-section title="Останні зареєстровані користувачі" subtitle="Користувачі, які нещодавно зареєструвались">
             <dashboard-table 
@@ -41,7 +41,7 @@
             ></dashboard-table>
         </dashboard-section>
         <dashboard-section title="Розклад" subtitle="Дні, у які проходить виробниче навчання">
-            <schedule></schedule>
+            <schedule mode="view"></schedule>
         </dashboard-section>
     </div>
 </template>

@@ -8,7 +8,7 @@ class Validator {
         this.inputValidationStatus = {}
     
         this.validators = {
-            "minlength": item => {
+            minlength: item => {
                 let result = item.value.length >= item.dataset.minlength ? true : false
                 let correctCount = 'символ'
     
@@ -22,7 +22,7 @@ class Validator {
     
                 return result
             },
-            "email": item => {
+            email: item => {
                 let result = item.value.indexOf("@") >= 1 ? true : false
             
                 if(!result)
@@ -30,7 +30,7 @@ class Validator {
     
                 return result
             },
-            "sameas": item => {
+            sameas: item => {
                 const inputToCompare = document.getElementById(item.dataset.sameas)
     
                 let result = item.value == inputToCompare.value ? true : false
@@ -42,14 +42,7 @@ class Validator {
             }
         }
     }
-    setTargetForm(el, sentToServer = false, method, path, filfilled, rejected){
-        this.targetForm = el
-        this.autoSendToServer = sentToServer
 
-        if(this.autoSendToServer) 
-            this.setCustomSubmit(method, path, filfilled, rejected)
-    
-    }
     setCustomSubmit(method, path, filfilled, rejected){
         this.targetForm.onsubmit = event => {
             event.preventDefault()
@@ -65,7 +58,7 @@ class Validator {
             })
 
             const api = new API()
-            
+            api.authorize()
             // if specified method exists
             if(api[method]) {
                 return api[method](path, formData).then(response => {
@@ -116,6 +109,24 @@ class Validator {
                 this.setInputAsInvalid(item)
         }
     }
+
+    forceValidation(){
+        Array.prototype.map.call(this.inputList, item => {
+            this.validateInput(item)
+        })
+    }
+
+    // public methods
+
+    setTargetForm(el, sentToServer = false, method, path, filfilled, rejected){
+        this.targetForm = el
+        this.autoSendToServer = sentToServer
+
+        if(this.autoSendToServer) 
+            this.setCustomSubmit(method, path, filfilled, rejected)
+    
+    }
+
     setValidationObserver(){
         this.inputList = this.targetForm.querySelectorAll("input")
         Array.prototype.map.call(this.inputList, item => {
@@ -123,11 +134,7 @@ class Validator {
             this.inputValidationStatus[item.id] = false
         })
     }
-    forceValidation(){
-        Array.prototype.map.call(this.inputList, item => {
-            this.validateInput(item)
-        })
-    }
+
     getResult(){
         let result = true
 

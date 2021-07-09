@@ -18,14 +18,15 @@
                     {{data.description}}
                 </p>
             </div>
-            <group-edit v-if="mode['groupEdit']"></group-edit>
+            <group-edit v-if="mode['groupEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></group-edit>
+            <group-create v-if="mode['groupCreate']" @onsuccess="showMessageFromServer" @onerror="showServerError"></group-create>
         </div>
     </transition>
 </template>
 
 <style lang="sass" scoped>
 .user-input-sidebar-container
-    position: fixed
+    position: absolute
     right: 0
     top: 0
     width: 30vw
@@ -33,6 +34,7 @@
     height: 100vh
     box-sizing: border-box
     padding: 25px
+    z-index: 50
 
     & .close-contianer
         position: absolute
@@ -48,7 +50,8 @@
 </style>
 
 <script>
-    import GroupEdit from "@/components/Dashboard/Groups/GroupEdit"
+    import GroupEdit from "@/components/Dashboard/Groups/GroupEdit.vue"
+    import GroupCreate from "@/components/Dashboard/Groups/GroupCreate.vue"
 
     export default {
         computed: {
@@ -63,11 +66,25 @@
             }
         },
         components: {
-            'group-edit': GroupEdit
+            'group-edit': GroupEdit,
+            'group-create': GroupCreate
         },
         methods: {
             closeUserInputSidebar(){
                 this.$store.commit('RESET_DASHBOARD_INPUT_SIDEBAR')
+            },
+            showServerError(error){
+                this.$store.commit('ADD_NEW_MESSAGE', {
+                    title: "Серверна помилка",
+                    msg: "Відбулась критична помилка на стороні серверу. Перегляньте консоль для детальної інформації",
+                    type: "error"
+                })
+
+                console.error(error) 
+            },
+            showMessageFromServer(msg){
+                this.$store.commit('ADD_NEW_MESSAGE', msg)
+                this.closeUserInputSidebar()
             }
         }
     }

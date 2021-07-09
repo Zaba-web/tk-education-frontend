@@ -1,6 +1,6 @@
 <template>
     <div class="schedule-day-container"  @click="activateDay">
-        <div :class="{'schedule-day-container-active': isActive}">
+        <div :class="{'schedule-day-container-active': startActive}">
             <span>
                 {{dayName}}
             </span>
@@ -12,22 +12,14 @@
     export default {
         props: {
             startActive: Boolean,
-            dayName: String
-        },
-        data(){
-            return {
-                isActive: false
-            }
+            dayName: String,
+            dayId: Number 
         },
         methods: {
             activateDay(){
-                this.isActive = !this.isActive
-                this.$emit('changedDayStatus', [this.dayName, this.isActive])
+                this.$emit('changedDayStatus', [this.dayName, this.dayId])
             }
         },
-        mounted(){
-            this.isActive = this.startActive
-        }
     }
 </script>
 

@@ -28,11 +28,18 @@
                 let currentColorTheme = localStorage.getItem('colorTheme')
                 let currentColorThemeIndex = this.colorThemes.indexOf(currentColorTheme)
 
+                // if color theme not selected
+                if(currentColorTheme == null || currentColorTheme == undefined) {
+                    localStorage.setItem('colorTheme', this.colorThemes[this.colorThemes.length - 1])
+                    return ;
+                }
+
                 if(currentColorThemeIndex + 1 < this.colorThemes.length)
                     localStorage.setItem('colorTheme', this.colorThemes[currentColorThemeIndex + 1])
                 else
                     localStorage.setItem('colorTheme', this.colorThemes[0])
 
+                // reload page
                 this.$router.go()
             }
         }

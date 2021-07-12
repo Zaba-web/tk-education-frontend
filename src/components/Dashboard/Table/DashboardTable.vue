@@ -9,11 +9,14 @@
             <transition-group
                 enter-active-class="animate__animated animate__fadeInUp"
                 leave-active-class="animate__animated animate__fadeOutUp"
-            >
+                >
+
                 <tr v-for="(item, index) in tableContent" :key="index">
                     <td v-for="(cellContent, _index) in item" :key="_index" class="p-like sm-top-padding default-text-color less-size" v-html="cellContent">
                     </td>
                 </tr>
+
+                <slot v-if="tableContent == undefined"></slot>
             </transition-group>
         </table>
     </div>

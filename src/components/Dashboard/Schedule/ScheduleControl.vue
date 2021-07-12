@@ -40,12 +40,14 @@
             'day': ScheduleDay
         },
         props: {
-            mode: String
+            mode: String,
+            groupId: Number
         },
         data(){
             return {
                 groupList: {},
                 selectedGroup: 0,
+                api: null,
                 dayData: [
                     {
                         name: "ПН",
@@ -72,16 +74,19 @@
         },
         methods:{
             changeDayStatus(data){
-                if(this.mode == 'edit')
-                    console.log(data)
+                if(this.mode == 'edit') {
+                    this.dayData[data[1]].active = !this.dayData[data[1]].active
+                    this.saveSchedule()
+                }
             },
+
             resetDayData(){
                 for(let day in this.dayData) 
                     this.dayData[day].active = false
                 
             },
+
             getScheduleData(){
-                
                 this.resetDayData()
 
                 for(let group in this.groupList) {
@@ -90,16 +95,46 @@
                         days.map(value => this.dayData[parseInt(value)].active = true)
                     }
                 }
+            },
+
+            getScheduleResult(){
+                let result = []
+                
+                for(let day in this.dayData)
+                    if (this.dayData[day].active) result.push(day)
+                
+                return result.join(';')
+            },
+
+            saveSchedule(){
+                let scheduleDays = this.getScheduleResult()
+
+                this.api.put(`admin/groups/setup/${this.groupId}`, {day: scheduleDays}).catch(error=>{
+                    this.$store.commit('ADD_NEW_MESSAGE', {
+                        title: "Серверна помилка",
+                        msg: "Відбулась критична помилка на стороні серверу. Перегляньте консоль для детальної інформації",
+                        type: "error"
+                    })
+
+                    console.error(error) 
+                })
             }
         },
         mounted(){
-            const api = new API()
-            api.get('groups').then(response => {
-                if(response.data) {
-                    this.groupList = response.data
-                    this.selectedGroup = this.groupList[0].id
-                    this.getScheduleData()
-                }
+            this.api = new API()
+
+            this.$nextTick(()=>{     
+                this.api.get('groups').then(response => {
+                    if(response.data) {
+                        this.groupList = response.data
+
+                        if(this.groupId) 
+                            this.groupList = this.groupList.filter(item => item.id == this.groupId)
+
+                        this.selectedGroup = this.groupList[0].id
+                        this.getScheduleData()
+                    }
+                })
             })
         }
     }

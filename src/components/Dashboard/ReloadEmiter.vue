@@ -1,5 +1,9 @@
 <template>
-    <div class="list-reload dashboard-lists-action-icon-block" :class="selectorClass" @click="emitReloadAction">
+    <div class="list-reload dashboard-lists-action-icon-block" 
+        :class="[selectorClass, {
+            'minified': mode == 'small'
+            }]" 
+        @click="emitReloadAction">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 489.711 489.711" style="enable-background:new 0 0 489.711 489.711;" xml:space="preserve" class="default-icon-fill">
             <g>
@@ -22,7 +26,8 @@
 <script>
     export default {
         props: {
-            'selectorClass': String
+            'selectorClass': String,
+            'mode': String 
         },
         methods: {
             emitReloadAction(){

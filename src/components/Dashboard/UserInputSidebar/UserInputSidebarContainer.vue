@@ -20,6 +20,7 @@
             </div>
             <group-edit v-if="mode['groupEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></group-edit>
             <group-create v-if="mode['groupCreate']" @onsuccess="showMessageFromServer" @onerror="showServerError"></group-create>
+            <accept-student v-if="mode['userAccept']" @onsuccess="showMessageFromServer" @onerror="showServerError"></accept-student>
         </div>
     </transition>
 </template>
@@ -52,6 +53,7 @@
 <script>
     import GroupEdit from "@/components/Dashboard/Groups/GroupEdit.vue"
     import GroupCreate from "@/components/Dashboard/Groups/GroupCreate.vue"
+    import AcceptStudent from '@/components/Dashboard/Users/AcceptStudent.vue'
 
     export default {
         computed: {
@@ -67,7 +69,8 @@
         },
         components: {
             'group-edit': GroupEdit,
-            'group-create': GroupCreate
+            'group-create': GroupCreate,
+            'accept-student': AcceptStudent
         },
         methods: {
             closeUserInputSidebar(){

@@ -105,5 +105,6 @@
     padding: 1px 4px
     border-radius: 4px
     transition: $transition-time
+    cursor: pointer
 
 </style>

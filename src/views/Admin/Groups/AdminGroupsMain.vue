@@ -10,7 +10,7 @@
                         Створити групу можна шляхом заповнення простої форми, де потрібно вказати назву групи та ім'я майстра в/н.
                    </instruction-item>
                     <instruction-item item-title="Реєстрація">
-                        Створити групу можна шляхом заповнення простої форми, де потрібно вказати назву групи та ім'я майстра в/н.
+                        Після створення група стає доступною для вибору під час реєстрації учнів.
                    </instruction-item>
                     <instruction-item item-title="Підтвердження" filled="true">
                         З метою контролю коректності даних, підтвердження реєстрації учнів здійснюється вручну майстром в/н
@@ -19,7 +19,7 @@
             </default-block>
         </dashboard-section>
         <dashboard-section title="Зареєстровані групи" subtitle="Перелік зареєстрованих груп">
-            <group-list reloadable="true" can-add-new="true"></group-list>
+            <group-list :reloadable='true' :can-add-new="true"></group-list>
         </dashboard-section>
     </div>
 </template>

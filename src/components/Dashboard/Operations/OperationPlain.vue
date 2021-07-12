@@ -19,6 +19,7 @@
 
 <style lang="sass" scoped>
 div
+    cursor: pointer
     text-align: center
     box-sizing: border-box
     padding: 5px 2px 5px 0

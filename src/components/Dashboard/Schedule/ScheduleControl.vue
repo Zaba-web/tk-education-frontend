@@ -123,16 +123,18 @@
         mounted(){
             this.api = new API()
 
-            this.api.get('groups').then(response => {
-                if(response.data) {
-                    this.groupList = response.data
+            this.$nextTick(()=>{     
+                this.api.get('groups').then(response => {
+                    if(response.data) {
+                        this.groupList = response.data
 
-                    if(this.groupId) 
-                        this.groupList = this.groupList.filter(item => item.id == this.groupId)
+                        if(this.groupId) 
+                            this.groupList = this.groupList.filter(item => item.id == this.groupId)
 
-                    this.selectedGroup = this.groupList[0].id
-                    this.getScheduleData()
-                }
+                        this.selectedGroup = this.groupList[0].id
+                        this.getScheduleData()
+                    }
+                })
             })
         }
     }

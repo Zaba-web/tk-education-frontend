@@ -1,9 +1,12 @@
 <template>
-    <header class="dashboard-header">
-        <div class="user-name-container">
-            <span class="p-like default-text-color sm-top-padding less-size">
-                Привіт, {{userName}}
-            </span>
+    <header class="dashboard-header bg-fill-default">
+        <div class="name-and-notifications">
+            <div class="user-name-container">
+                <span class="p-like default-text-color sm-top-padding less-size">
+                    Привіт, {{userName}}
+                </span>
+            </div>
+            <notification-container></notification-container>
         </div>
         <div class="operation-icons-container">
             <color-theme-switcher></color-theme-switcher>
@@ -26,7 +29,8 @@
 
 <script>
     import DashboardColorThemeController from '@/components/Dashboard/DashboardColorThemeController.vue'
-
+    import NotificationContainer from '@/components/Dashboard/Notifications/NotificationContainer.vue'
+    
     export default {
         data(){
             return {
@@ -37,7 +41,8 @@
             this.userName = localStorage.getItem("username")
         },
         components: {
-            'color-theme-switcher': DashboardColorThemeController
+            'color-theme-switcher': DashboardColorThemeController,
+            'notification-container': NotificationContainer
         }
     }
 </script>
@@ -48,10 +53,17 @@ header
     justify-content: space-between
     align-items: center
     padding: 10px 0
+    position: fixed
+    top: 0
+    width: 78.5%
+    z-index: 700
 .operation-icons-container
     display: flex
     gap: 20px
     align-items: center
     & .icon-container
         cursor: pointer
+.name-and-notifications
+    display: flex
+    align-items: center
 </style>

@@ -5,6 +5,8 @@
         </dashboard-view-title>
 
         <dashboard-section title="Список учнів" subtitle="Зареєстровані та підтверджені учні">
+            <span class="p-like default-text-color sm-top-padding less-size">Сортувати: <span class="hover-text-light" @click='sortByNumber'>За номером</span> | <span class="hover-text-light" @click='sortBySubgroup'>За підгрупою</span></span>
+            <br><br>
             <dashboard-table :table-header="['Дата реєстрації', '№ у списку', 'Ім\'я', 'Підгрупа', 'Операції']">
                 <tr v-for="(student, studentIndex) of students.confirmed" :key="studentIndex" class="p-like sm-top-padding default-text-color less-size">
                     <td >
@@ -112,6 +114,14 @@
                 })
             },
 
+            sortByNumber(){
+                this.students.confirmed.sort((a, b) => a.student_number > b.student_number)
+            },
+
+            sortBySubgroup(){
+                this.students.confirmed.sort((a, b) => a.subgroup > b.subgroup)
+            },
+
             loadStudents(){
                 this.students.all = [] 
                 this.students.confirmed = []
@@ -125,7 +135,7 @@
                         else this.students.unconfirmed.push(student)
                     })
 
-                    this.students.confirmed.sort((a, b) => a.student_number > b.student_number)
+                    this.sortByNumber()
                 })
             },
 

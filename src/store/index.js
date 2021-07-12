@@ -57,7 +57,8 @@ export default createStore({
 			state.lastUpdated = payload
 		},
 		ADD_NEW_MESSAGE(state, payload){
-			state.messages.push(payload)
+			state.messages.unshift(payload)
+			document.querySelector('.notification-trigger').classList.add('animate__animated', 'animate__shakeY')
 		},
 		REMOVE_MESSAGE(state, payload){
 			state.messages.splice(payload, 1)

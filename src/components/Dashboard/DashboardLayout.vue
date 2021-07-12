@@ -53,9 +53,10 @@
 </template>
 
 <script>
-    import DashboardMenuItem from '../Dashboard/DashboardMenuItem.vue'
-    import DashboardHeader from '../Dashboard/DashboardHeader.vue'
-    import UserInputSidebarContainer from '../Dashboard/UserInputSidebar/UserInputSidebarContainer.vue'
+    import DashboardMenuItem from '@/components/Dashboard/DashboardMenuItem.vue'
+    import DashboardHeader from '@/components/Dashboard/DashboardHeader.vue'
+    import UserInputSidebarContainer from '@/components/Dashboard/UserInputSidebar/UserInputSidebarContainer.vue'
+    
 
     export default {
         data(){
@@ -131,4 +132,5 @@ main
 .dashboard-content-wrapper
     box-sizing: border-box
     padding: 10px 35px
+    padding-top: 40px
 </style>

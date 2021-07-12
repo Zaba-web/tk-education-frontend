@@ -19,7 +19,7 @@
             </default-block>
         </dashboard-section>
         <dashboard-section title="Зареєстровані групи" subtitle="Перелік зареєстрованих груп">
-            <group-list reloadable="true" can-add-new="true"></group-list>
+            <group-list :reloadable='true' :can-add-new="true"></group-list>
         </dashboard-section>
     </div>
 </template>

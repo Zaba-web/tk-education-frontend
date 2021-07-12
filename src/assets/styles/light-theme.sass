@@ -17,7 +17,7 @@
     & .bright-text-color
         color: $black-text-color
     & .default-icon-fill
-        fill: $black-text-color
+        fill: $light-theme-text-color
         transition: $transition-time
         &:not(.static-icon)
             &:hover
@@ -75,4 +75,8 @@
     & .instruction-item-contianer::after, & .instruction-item-contianer::before
         background: #C2C2C2
     & .instruction-item-contianer.filled::before
+        background: $light-theme-secondary-accnet-color
+    & .user-status-false::before
+        background: #C2C2C2
+    & .user-status-true::before
         background: $light-theme-secondary-accnet-color

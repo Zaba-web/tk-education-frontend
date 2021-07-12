@@ -74,10 +74,10 @@
         },
         methods:{
             changeDayStatus(data){
-                if(this.mode == 'edit')
+                if(this.mode == 'edit') {
                     this.dayData[data[1]].active = !this.dayData[data[1]].active
-
-                this.saveSchedule()
+                    this.saveSchedule()
+                }
             },
 
             resetDayData(){

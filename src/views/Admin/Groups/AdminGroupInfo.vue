@@ -23,7 +23,7 @@
                     </td>
                     <td class="tablecell-operation-containr">
                         <delete :path="`user/delete/${student.id}`" @deletedSuccessful="loadStudents"></delete>
-                        <operation-plain>
+                        <operation-plain title="Переглянути роботи учня">
                             <router-link :to="`/admin/user/tasks/${student.id}`">
                                 <svg id="Group_552" data-name="Group 552" xmlns="http://www.w3.org/2000/svg" width="20.298" height="15.507" viewBox="0 0 20.298 15.507" class="default-icon-fill"> 
                                     <g id="Group_551" data-name="Group 551" transform="translate(0 0)">
@@ -49,7 +49,7 @@
                         {{student.name}}
                     </td>
                     <td class="tablecell-operation-containr">
-                        <operation-plain @click="openUserAcceptForm(student.id)">
+                        <operation-plain @click="openUserAcceptForm(student.id)" title="Підтвердити учня">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14.016" height="14.016" viewBox="0 0 14.016 14.016" class="default-icon-fill">
                                 <g id="checked_1_" data-name="checked(1)" transform="translate(0.441 0.435)">
                                     <path id="Path_1738" data-name="Path 1738" d="M62.5,72.074l-4.37,4.37L56.8,75.114a.47.47,0,1,0-.664.664L57.8,77.441a.47.47,0,0,0,.664,0l4.7-4.7a.47.47,0,1,0-.664-.664Z" transform="translate(-53.077 -68.183)"/>
@@ -62,12 +62,19 @@
                 </tr>
             </dashboard-table>
         </dashboard-section>
+        <dashboard-section title="Останні роботи" subtitle="Останні надіслані роботи учнів даної групи">
+
+        </dashboard-section>
+        <dashboard-section title="Розклад" subtitle="Оберіть дні, в які проходить виробниче навчання">
+            <shcedule mode="edit" :group-id="groupData.id"></shcedule>
+        </dashboard-section>
     </div>
 </template>
 
 <script>
     import {structureComponents, listInterationComponents, operationsComponents} from "@/libs/dashboardComponentsLoader"
     import OperationPlain from "@/components/Dashboard/Operations/OperationPlain.vue"
+    import ScheduleControl from '@/components/Dashboard/Schedule/ScheduleControl.vue'
 
     import API from '@/libs/api'
 
@@ -76,7 +83,8 @@
             ...structureComponents,
             ...operationsComponents,
             ...listInterationComponents,
-            'operation-plain': OperationPlain
+            'operation-plain': OperationPlain,
+            'shcedule': ScheduleControl
         },
         computed: {
             groupId(){

@@ -20,7 +20,7 @@
         mounted(){
             this.$nextTick(()=>{
                 const validator = new Validator();
-                validator.setTargetForm(this.$refs.form, true, 'post', `admin/groups/create`, 
+                validator.setTargetForm(this.$refs.form, true, 'post', `groups/create`, 
                 response => {
                     this.$store.commit('UPDATE_LIST', '.group-list-reload')
                     this.$emit('onsuccess', response.data)

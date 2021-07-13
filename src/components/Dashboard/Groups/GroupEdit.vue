@@ -42,7 +42,7 @@
 
             this.$nextTick(()=>{
                 const validator = new Validator();
-                validator.setTargetForm(this.$refs.form, true, 'put', `admin/groups/update/${this.groupId}`, 
+                validator.setTargetForm(this.$refs.form, true, 'put', `groups/update/${this.groupId}`, 
                 response => {
                     this.$store.commit('UPDATE_LIST', '.group-list-reload')
                     this.$emit('onsuccess', response.data)

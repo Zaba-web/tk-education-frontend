@@ -21,17 +21,19 @@
         data(){
             return {
                 menu: [],
-                colorTheme: 'dark'
+            }
+        },
+        computed: {
+            colorTheme(){
+                if(localStorage.getItem('colorTheme') != null) return localStorage.getItem('colorTheme')
+                else return 'dark'
             }
         },
         components:{
             "layout": DashboardLayout
         },
         mounted(){
-
             adminMenu.map(item => this.menu.push(item))
-            if(localStorage.getItem('colorTheme') != null) 
-                this.colorTheme = localStorage.getItem('colorTheme')
         }
     }
 </script>

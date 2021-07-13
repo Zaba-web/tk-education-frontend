@@ -21,7 +21,7 @@
         },
         props: {
             'componentToOpen': String,
-            'additionalData': String
+            'additionalData': Object
         },
         methods: {
             openInputSidebar(){

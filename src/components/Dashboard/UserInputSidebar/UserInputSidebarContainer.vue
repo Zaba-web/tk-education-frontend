@@ -21,6 +21,10 @@
             <group-edit v-if="mode['groupEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></group-edit>
             <group-create v-if="mode['groupCreate']" @onsuccess="showMessageFromServer" @onerror="showServerError"></group-create>
             <accept-student v-if="mode['userAccept']" @onsuccess="showMessageFromServer" @onerror="showServerError"></accept-student>
+            <course-create v-if="mode['courseCreate']" @onsuccess="showMessageFromServer" @onerror="showServerError"></course-create>
+            <course-edit v-if="mode['courseEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></course-edit>
+            <theme-create v-if="mode['themeCreate']" @onsuccess="showMessageFromServer" @onerror="showServerError"></theme-create>
+            <theme-edit v-if="mode['themeEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></theme-edit>
         </div>
     </transition>
 </template>
@@ -35,7 +39,7 @@
     height: 100vh
     box-sizing: border-box
     padding: 25px
-    z-index: 50
+    z-index: 750
 
     & .close-contianer
         position: absolute
@@ -54,6 +58,10 @@
     import GroupEdit from "@/components/Dashboard/Groups/GroupEdit.vue"
     import GroupCreate from "@/components/Dashboard/Groups/GroupCreate.vue"
     import AcceptStudent from '@/components/Dashboard/Users/AcceptStudent.vue'
+    import CreateCourse from '@/components/Dashboard/Study/Courses/CreateCourse.vue'
+    import EditCourse from '@/components/Dashboard/Study/Courses/EditCourse.vue'
+    import ThemeCreate from '@/components/Dashboard/Study/Themes/ThemeCreate.vue'
+    import ThemeEdit from '@/components/Dashboard/Study/Themes/ThemeEdit.vue'
 
     export default {
         computed: {
@@ -70,7 +78,11 @@
         components: {
             'group-edit': GroupEdit,
             'group-create': GroupCreate,
-            'accept-student': AcceptStudent
+            'accept-student': AcceptStudent,
+            'course-create': CreateCourse,
+            'course-edit': EditCourse,
+            'theme-create': ThemeCreate,
+            'theme-edit': ThemeEdit
         },
         methods: {
             closeUserInputSidebar(){

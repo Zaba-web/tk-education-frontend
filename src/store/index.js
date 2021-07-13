@@ -57,6 +57,14 @@ export default createStore({
 			state.lastUpdated = payload
 		},
 		ADD_NEW_MESSAGE(state, payload){
+			/* 
+				Payload should be an object with following stucture:
+				{
+					type: String,
+					title: String,
+					msg: String
+				}
+			*/
 			state.messages.unshift(payload)
 			document.querySelector('.notification-trigger').classList.add('animate__animated', 'animate__shakeY')
 		},

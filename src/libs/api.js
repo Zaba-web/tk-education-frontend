@@ -1,10 +1,21 @@
 import axios from 'axios'
+import store from '@/store/index'
 
 const serverLocation = 'http://127.0.0.1:8000/api/'
 
 class API {
     constructor(){
         this.axiosInstance = axios.create()
+    }
+
+    showError(error){
+        store.commit('ADD_NEW_MESSAGE', {
+            title: "Серверна помилка",
+            msg: "Відбулась критична помилка на стороні серверу. Перегляньте консоль для детальної інформації",
+            type: "error"
+        })
+
+        console.error(error) 
     }
 
     getServerLocation(){
@@ -93,7 +104,7 @@ class API {
                 localStorage.removeItem("email")
             }
         }).catch(error => {
-            console.error(error)
+            this.showError(error)
         })
     }
 
@@ -103,7 +114,7 @@ class API {
         return this.get(path).then(response => {
             return response.data
         }).catch(error => {
-            alert(error) // temponary
+            this.showError(error)
         })
     }
 

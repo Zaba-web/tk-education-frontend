@@ -109,7 +109,7 @@
             saveSchedule(){
                 let scheduleDays = this.getScheduleResult()
 
-                this.api.put(`admin/groups/setup/${this.groupId}`, {day: scheduleDays}).catch(error=>{
+                this.api.put(`groups/setup/${this.groupId}`, {day: scheduleDays}).catch(error=>{
                     this.$store.commit('ADD_NEW_MESSAGE', {
                         title: "Серверна помилка",
                         msg: "Відбулась критична помилка на стороні серверу. Перегляньте консоль для детальної інформації",

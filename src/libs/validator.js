@@ -98,16 +98,22 @@ class Validator {
         item.after(errorElementWrapper)
     }
     validateInput(item){
+
+        let inputValidatorsCount = 0
+
         for(let dataElement in item.dataset) {
             if(this.validators[dataElement] == undefined) continue
 
             let isInputValid = this.validators[dataElement](item)
 
-            if(isInputValid) 
-                this.setInputAsValid(item)
-            else 
-                this.setInputAsInvalid(item)
+            if(isInputValid) this.setInputAsValid(item)
+            else this.setInputAsInvalid(item)
+
+            inputValidatorsCount++
         }
+
+        // input does not need to be validate
+        if(inputValidatorsCount == 0) this.setInputAsValid(item)
     }
 
     forceValidation(){

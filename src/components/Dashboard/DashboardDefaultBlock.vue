@@ -9,6 +9,7 @@ div
     box-sizing: border-box
     padding: 20px
     border-radius: 5px
+    position: relative
 </style>
 
 <script>

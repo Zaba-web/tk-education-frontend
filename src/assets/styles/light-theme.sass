@@ -84,3 +84,74 @@
         color: $black-text-color
     & .notification
         border-bottom: 1px solid #C2C2C2
+
+    & .dashboard-text-content
+        & h1, & h2, & h3, & h4, & h5
+            color: $black-text-color
+            padding-top: 15px
+        & h3
+            font-size: 21px
+        & p
+            color: $light-theme-text-color
+        & .user-text-selected, & .user-text-selected span
+            background: $light-theme-bg-color !important
+            border-radius: 6px !important
+            margin: 0 4px
+        & .user-text-selected
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px
+        & ol, & ul
+            padding: 15px 0 15px 25px
+            list-style-position: inside
+            & li
+                color: $light-theme-text-color
+                font-family: 'Raleway-Light'
+                font-size: 16px
+                line-height: 32px
+                padding: 6px 0
+        & .user-selected-box
+            margin-top: 10px
+            border: 2px dashed $gray-text-color !important
+            opacity: .6
+            color: $light-theme-text-color
+            font-family: 'Raleway-Light'
+            font-size: 16px
+            line-height: 24px
+            padding: 6px 0
+            & > p:first-of-type
+                padding-top: 0px !important
+        & .user-important-notice
+            padding: 20px !important
+            background: $light-theme-bg-color !important
+            border-left: 7px solid $light-theme-secondary-accnet-color !important
+            font-family: 'Raleway-Light'
+            font-size: 16px
+            line-height: 24px
+            color: #fff
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px
+            margin-top: 15px
+            color: $black-text-color !important
+        & .user-con, & .user-con-trans
+            border: none !important
+            overflow: scroll !important
+            margin-top: 15px
+
+        & .user-con
+            background: $light-theme-bg-color !important
+        & strong
+            font-family: 'Raleway-Bold'
+            font-weight: 400
+        & code
+            background: $light-theme-bg-color !important
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px
+            border-radius: 6px
+        & a
+            color: $light-theme-secondary-accnet-color
+
+        & table
+            th
+                color: #fff !important
+            td
+                color: $gray-text-color !important
+            td, th
+                font-family: 'Raleway-Light'
+                padding: 20px !important

@@ -16,13 +16,16 @@
     export default {
         methods: {
             createAction(){
+                if(this.decorative) return ;
+
                 this.$store.commit('RESET_DASHBOARD_INPUT_SIDEBAR')
                 this.$store.commit('SHOW_DASHBOARD_INPUT_SIDEBAR', {'component': this.componentToOpen, 'data': this.additionalData})
             }
         },
         props: {
             componentToOpen: String,
-            additionalData: Object
+            additionalData: Object,
+            decorative: Boolean
         }
     }
 </script>

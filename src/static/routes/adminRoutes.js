@@ -3,7 +3,11 @@ import AdminGroupsMain from '@/views/Admin/Groups/AdminGroupsMain.vue'
 import AdminGroupInfo from '@/views/Admin/Groups/AdminGroupInfo.vue'
 
 import AdminCoursesMain from '@/views/Admin/Study/AdminCourses.vue'
-import AdminGroupCourseInfo from '@/views/Admin/Study/AdminGroupCourseInfo.vue'
+import AdminCourseInfo from '@/views/Admin/Study/AdminCourseInfo.vue'
+
+import AdminThemeInfo from '@/views/Admin/Study/AdminThemeInfo.vue'
+
+import AdminTaskView from '@/views/Admin/Study/TaskView.vue'
 
 const adminRoutes = [
     {
@@ -29,7 +33,17 @@ const adminRoutes = [
     {
         path: 'course/:id',
         name: 'admin/study/themes',
-        component: AdminGroupCourseInfo
+        component: AdminCourseInfo
+    },
+    {
+        path: 'theme/:id',
+        name: 'admin/study/tasks',
+        component: AdminThemeInfo
+    },
+    {
+        path: 'task/view/:id',
+        name: 'admin/study/tasks/view',
+        component: AdminTaskView
     }
 
 ]

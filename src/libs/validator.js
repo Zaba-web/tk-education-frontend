@@ -43,7 +43,7 @@ class Validator {
         }
     }
 
-    setCustomSubmit(method, path, filfilled, rejected){
+    setCustomSubmit(method, path, fulfilled, rejected){
         this.targetForm.onsubmit = event => {
             event.preventDefault()
 
@@ -62,7 +62,7 @@ class Validator {
             // if specified method exists
             if(api[method]) {
                 return api[method](path, formData).then(response => {
-                    filfilled(response)
+                    fulfilled(response)
                 }).catch(error => {
                     rejected(error)
                 })
@@ -134,7 +134,7 @@ class Validator {
     }
 
     setValidationObserver(){
-        this.inputList = this.targetForm.querySelectorAll("input")
+        this.inputList = this.targetForm.querySelectorAll("input, select")
         Array.prototype.map.call(this.inputList, item => {
             item.onblur = ()=>{this.validateInput(item)}
             this.inputValidationStatus[item.id] = false

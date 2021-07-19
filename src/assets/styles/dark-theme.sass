@@ -100,9 +100,9 @@
             background: $dark-theme-bg-color !important
             border-radius: 6px !important
             margin: 0 4px
-        & .user-text-selected
-            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px
-            border: 1px solid lighten(#000, 17%)
+        & .user-text-selected, & .content .user-text-selected
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px !important
+            border: 1px solid lighten(#000, 17%) !important
         & ol, & ul
             padding: 15px 0 15px 25px
             list-style-position: inside
@@ -126,7 +126,7 @@
         & .user-important-notice
             padding: 20px !important
             background: $dark-theme-bg-color !important
-            border-left: 7px solid $dark-theme-secondary-accent-color !important
+            border-left: 4px solid $dark-theme-secondary-accent-color !important
             font-family: 'Raleway-Light'
             font-size: 16px
             line-height: 24px
@@ -137,12 +137,11 @@
             &::before
                 content: '!'
                 position: absolute
-                height: 30px
-                width: 30px
+                height: 20px
+                width: 20px
                 top: 10px
-                left: -17px
-                padding-left: 12px
-                padding-top: 3px
+                left: -13px
+                padding-left: 8px
                 background: $dark-theme-secondary-accent-color
                 border-radius: 100px
                 box-sizing: border-box

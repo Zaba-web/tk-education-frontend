@@ -18,7 +18,14 @@
             enter-active-class="animate__animated animate__fadeInLeft"
             leave-active-class="animate__animated animate__fadeOutLeft"
         >
-            <theme-item v-for="(theme, index) in themeListOutput" :key="index" :theme="theme" :object="themeListOriginal" :field="title" @deletedSuccessful="loadThemes"></theme-item>
+            <theme-item 
+                v-for="(theme, index) in themeListOutput" 
+                :key="index" 
+                :theme="theme" 
+                :object="themeListOriginal" 
+                :field="title" 
+                @deletedSuccessful="loadThemes">
+            </theme-item>
         </transition-group>
     </div>
 </template>

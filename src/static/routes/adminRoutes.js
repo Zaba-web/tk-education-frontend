@@ -8,6 +8,8 @@ import AdminCourseInfo from '@/views/Admin/Study/AdminCourseInfo.vue'
 import AdminThemeInfo from '@/views/Admin/Study/AdminThemeInfo.vue'
 
 import AdminTaskView from '@/views/Admin/Study/TaskView.vue'
+import AdminTaskCreate from '@/views/Admin/Study/AdminTaskCreate.vue' 
+import AdminTaskEdit from '@/views/Admin/Study/AdminTaskEdit.vue' 
 
 const adminRoutes = [
     {
@@ -44,6 +46,16 @@ const adminRoutes = [
         path: 'task/view/:id',
         name: 'admin/study/tasks/view',
         component: AdminTaskView
+    },
+    {
+        path: 'task/create/:id',
+        name: 'admin/study/task/create',
+        component: AdminTaskCreate
+    },
+    {
+        path: 'task/edit/:id',
+        name: 'admin/study/task/edit',
+        component: AdminTaskEdit
     }
 
 ]

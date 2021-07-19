@@ -130,6 +130,20 @@
             box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px
             margin-top: 15px
             color: $black-text-color !important
+            position: relative
+            &::before
+                content: '!'
+                position: absolute
+                height: 30px
+                width: 30px
+                top: 10px
+                left: -17px
+                padding-left: 12px
+                padding-top: 3px
+                background: $light-theme-secondary-accnet-color
+                border-radius: 100px
+                box-sizing: border-box
+                
         & .user-con, & .user-con-trans
             border: none !important
             overflow: scroll !important
@@ -155,3 +169,12 @@
             td, th
                 font-family: 'Raleway-Light'
                 padding: 20px !important
+    & .header-item
+        &.H4::after
+            background: transparentize($black-text-color, .5)
+        &.H3::after
+            background: $black-text-color
+        &.H2::after
+            background: $light-theme-secondary-accnet-color !important
+    & .task-item-status
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px

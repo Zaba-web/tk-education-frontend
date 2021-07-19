@@ -6,7 +6,18 @@
                 <span class="p-like sm-top-padding default-text-color less-size">[#{{task.id}}]</span>
             </h3>
         </div>
-
+        <div class="task-item-status-container">
+            <div class="task-item-status bg-fill-default" v-if="task.is_draft == 2">
+                <span class="p-like sm-top-padding default-text-color less-size">
+                    Чернетка
+                </span>
+            </div>
+            <div class="task-item-status bg-fill-default" v-if="task.is_themactic == `on`">
+                <span class="p-like sm-top-padding bright-text-color less-size">
+                    Тематична
+                </span>
+            </div>
+        </div>
         <operation-container>
             <operation title="Переглянути">
                 <router-link :to="`/admin/task/view/${task.id}`">
@@ -76,4 +87,17 @@
 .task-item-inner-container
     padding-right: 15px
     padding-bottom: 15px
+.task-item-status-container
+    box-sizing: border-box
+    position: absolute
+    left: 25px
+    bottom: -12px
+    display: flex
+.task-item-status
+    padding: 0 10px
+    border-radius: 6px
+    margin-left: 15px
+
+    &:first-of-type
+        margin-left: 0
 </style>

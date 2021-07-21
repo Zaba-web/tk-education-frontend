@@ -1,7 +1,7 @@
 <template>
     <section class="dashboard-section">
-        <h3 class="bright-text-color">{{title}}</h3>
-        <span class="p-like sm-top-padding less-font-size default-text-color">{{subtitle}}</span>
+        <h3 class="bright-text-color" v-if="title">{{title}}</h3>
+        <span class="p-like sm-top-padding less-font-size default-text-color" v-if="subtitle">{{subtitle}}</span>
 
         <div class="dashboard-section-container">
             <slot></slot>

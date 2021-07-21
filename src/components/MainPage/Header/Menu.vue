@@ -19,7 +19,7 @@
                     Вийти
                 </li>
                 <li v-if="isUserInSystem && accessLevel >= 1">
-                    <router-link to="">
+                    <router-link to="student">
                         Особистий кабінет
                     </router-link>
                 </li>

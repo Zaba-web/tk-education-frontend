@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import mainPageRoutes from '@/static/routes/mainPageRoutes'
 import adminRoutes from '@/static/routes/adminRoutes'
+import studentRoutes from '@/static/routes/studentRoutes'
 
 import AdminLayout from '@/views/Admin/AdminLayout.vue'
+import StudentLayout from '@/views/Student/StudentLayout.vue'
 
 import API from '@/libs/api'
 
@@ -19,6 +21,14 @@ const routes = [
 		component: AdminLayout,
 		children: [
 			...adminRoutes
+		]
+	},
+	{
+		path: '/student',
+		name: 'student',
+		component: StudentLayout,
+		children: [
+			...studentRoutes
 		]
 	},
 	{

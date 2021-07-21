@@ -13,6 +13,8 @@ import AdminTaskEdit from '@/views/Admin/Study/AdminTaskEdit.vue'
 
 import AdminUsersList from '@/views/Admin/Users/AdminUsersList.vue'
 
+import AdminWorksCourses from '@/views/Admin/Works/AdminWorksCourses.vue'
+
 const adminRoutes = [
     {
         path: '',
@@ -63,6 +65,11 @@ const adminRoutes = [
         path: 'users/',
         name: 'admin/users',
         component: AdminUsersList
+    },
+    {
+        path: 'works/',
+        name: 'admin/works',
+        component: AdminWorksCourses
     }
 
 ]

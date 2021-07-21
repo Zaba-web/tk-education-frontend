@@ -23,7 +23,7 @@
                     <td>
                         {{student.subgroup}}
                     </td>
-                    <td class="tablecell-operation-containr">
+                    <td class="tablecell-operation-container">
                         <delete :path="`user/delete/${student.id}`" @deletedSuccessful="loadStudents"></delete>
                         <operation-plain title="Переглянути роботи учня">
                             <router-link :to="`/admin/user/tasks/${student.id}`">
@@ -50,7 +50,7 @@
                     <td>
                         {{student.name}}
                     </td>
-                    <td class="tablecell-operation-containr">
+                    <td class="tablecell-operation-container">
                         <operation-plain @click="openUserAcceptForm(student.id)" title="Підтвердити учня">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14.016" height="14.016" viewBox="0 0 14.016 14.016" class="default-icon-fill">
                                 <g id="checked_1_" data-name="checked(1)" transform="translate(0.441 0.435)">

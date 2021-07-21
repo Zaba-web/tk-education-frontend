@@ -31,7 +31,10 @@ class API {
         }
     }
 
-    
+    enableFormMode(){
+        this.axiosInstance.defaults.headers.post['Content-Type'] = 'multipart/form-data'
+    }
+
     post(path, data, callback){
         let result = this.axiosInstance.post(`${serverLocation}${path}`, data)
         

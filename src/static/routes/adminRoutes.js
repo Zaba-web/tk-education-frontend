@@ -11,6 +11,8 @@ import AdminTaskView from '@/views/Admin/Study/TaskView.vue'
 import AdminTaskCreate from '@/views/Admin/Study/AdminTaskCreate.vue' 
 import AdminTaskEdit from '@/views/Admin/Study/AdminTaskEdit.vue' 
 
+import AdminUsersList from '@/views/Admin/Users/AdminUsersList.vue'
+
 const adminRoutes = [
     {
         path: '',
@@ -56,6 +58,11 @@ const adminRoutes = [
         path: 'task/edit/:id',
         name: 'admin/study/task/edit',
         component: AdminTaskEdit
+    },
+    {
+        path: 'users/',
+        name: 'admin/users',
+        component: AdminUsersList
     }
 
 ]

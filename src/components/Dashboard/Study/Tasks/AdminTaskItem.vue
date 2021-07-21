@@ -14,7 +14,7 @@
             </div>
             <div class="task-item-status bg-fill-default" v-if="task.is_themactic == `on`">
                 <span class="p-like sm-top-padding bright-text-color less-size">
-                    Тематична
+                    Тематичне завдання
                 </span>
             </div>
         </div>

@@ -25,6 +25,7 @@
             <course-edit v-if="mode['courseEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></course-edit>
             <theme-create v-if="mode['themeCreate']" @onsuccess="showMessageFromServer" @onerror="showServerError"></theme-create>
             <theme-edit v-if="mode['themeEdit']" @onsuccess="showMessageFromServer" @onerror="showServerError"></theme-edit>
+            <theme-access v-if="mode['grandAccesToTheme']" @onsuccess="showMessageFromServer" @onerror="showServerError"></theme-access>
         </div>
     </transition>
 </template>
@@ -62,6 +63,7 @@
     import EditCourse from '@/components/Dashboard/Study/Courses/EditCourse.vue'
     import ThemeCreate from '@/components/Dashboard/Study/Themes/ThemeCreate.vue'
     import ThemeEdit from '@/components/Dashboard/Study/Themes/ThemeEdit.vue'
+    import ThemeGrantAccess from '@/components/Dashboard/Study/Themes/ThemeGrantAccess.vue'
 
     export default {
         computed: {
@@ -82,7 +84,8 @@
             'course-create': CreateCourse,
             'course-edit': EditCourse,
             'theme-create': ThemeCreate,
-            'theme-edit': ThemeEdit
+            'theme-edit': ThemeEdit,
+            'theme-access': ThemeGrantAccess
         },
         methods: {
             closeUserInputSidebar(){

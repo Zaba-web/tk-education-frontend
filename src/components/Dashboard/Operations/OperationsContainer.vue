@@ -40,6 +40,7 @@
     right: 15px
     top: 15px
     cursor: pointer
+    z-index: 200
     & .static-icon
         position: relative
         top: 2px

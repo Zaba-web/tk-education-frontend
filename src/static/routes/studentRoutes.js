@@ -4,6 +4,8 @@ import StudentStudyCourses from '@/views/Student/Study/StudentStudyCourses.vue'
 import StudentStudyThemes from '@/views/Student/Study/StudentStudyThemes.vue'
 import StudentStudyTask from '@/views/Student/Study/StudentStudyTask.vue'
 
+import StudentActivity from '@/views/Student/StudentActivity.vue'
+
 const studentRoutes = [
     {
         path: '',
@@ -24,6 +26,11 @@ const studentRoutes = [
         path: 'study/task/:id',
         name: 'student/study/task',
         component: StudentStudyTask
+    },
+    {
+        path: 'activity',
+        name: 'student/activity',
+        component: StudentActivity
     }
 ]
 

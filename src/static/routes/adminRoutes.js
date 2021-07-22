@@ -14,6 +14,9 @@ import AdminTaskEdit from '@/views/Admin/Study/AdminTaskEdit.vue'
 import AdminUsersList from '@/views/Admin/Users/AdminUsersList.vue'
 
 import AdminWorksCourses from '@/views/Admin/Works/AdminWorksCourses.vue'
+import AdminWorksTasks from '@/views/Admin/Works/AdminWorksTasks.vue'
+import AdminCheckWork from '@/views/Admin/Works/AdminCheckWork.vue'
+import AdminUserWorks from '@/views/Admin/Works/AdminUserWorks.vue'
 
 const adminRoutes = [
     {
@@ -70,6 +73,21 @@ const adminRoutes = [
         path: 'works/',
         name: 'admin/works',
         component: AdminWorksCourses
+    },
+    {
+        path: 'works/:courseId/:groupId',
+        name: 'admin/works/tasks', 
+        component: AdminWorksTasks
+    },
+    {
+        path: 'works/check/:id',
+        name: 'admin/works/check',
+        component: AdminCheckWork
+    },
+    {
+        path: 'user/tasks/:id',
+        name: 'admin/user/tasks',
+        component: AdminUserWorks
     }
 
 ]

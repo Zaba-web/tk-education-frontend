@@ -31,7 +31,16 @@
         </inline-container>
 
         <inline-container v-if="displayMode == 'user'" mode="to-left">
-
+            <course-for-student 
+                v-for="(course, index) in courses" 
+                :key="index"
+                :title="course.name"
+                :theme-count="course.themeCount"
+                :create-date="course.created_at"
+                :id="course.id"
+                :description="course.description"
+                @deletedSuccessful="loadCoursesList"
+            ></course-for-student>
         </inline-container>
     </div>
 </template>
@@ -42,6 +51,7 @@
     import {listInterationComponents} from '@/libs/dashboardComponentsLoader'
 
     import CourseForAdmin from '@/components/Dashboard/Study/Courses/CourseForAdmin.vue'
+    import CourseForStudent from '@/components/Dashboard/Study/Courses/CourseForStudent.vue'
     import DefaultBlock from '@/components/Dashboard/DashboardDefaultBlock.vue'
     import InlineContainer from '@/components/Dashboard/InlineContainer.vue'
 
@@ -53,6 +63,7 @@
         }, 
         components: {
             'course-for-admin': CourseForAdmin,
+            'course-for-student': CourseForStudent,
             'default-block': DefaultBlock,
             'inline-container': InlineContainer,
             ...listInterationComponents

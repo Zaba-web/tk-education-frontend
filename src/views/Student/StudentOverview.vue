@@ -3,7 +3,7 @@
         <dashboard-view-title subtitle="Відображає поточний стан справ">
             Домашня сторінка
         </dashboard-view-title>
-        <dashboard-section title="Розпочати роботу" subtitle="З поверненням, Учень! Чим бажаєте зайнятись?">
+        <dashboard-section title="Розпочати роботу" :subtitle="`З поверненням, ${userName}! Чим бажаєте зайнятись?`">
             <inline-container>
                 <welcome />
                 <default-block block-width="33%">

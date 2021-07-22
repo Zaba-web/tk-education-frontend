@@ -49,6 +49,15 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 
+	if(to.fullPath.includes("student")) {
+		if(!api.ifUserLogin()) {
+			next(from.path || '/')
+			return ;
+		}
+
+		next()
+	}
+
 	if(to.fullPath.includes("admin")) { 
 
 		if(!api.ifUserLogin()) {

@@ -1,6 +1,6 @@
 const adminMenu = [
     {
-        title: "Керування",
+        title: "Навігація",
         items: [
             {
                 title: 'Огляд',
@@ -17,7 +17,7 @@ const adminMenu = [
             },
             {
                 title: 'Матеріали',
-                link: '/study',
+                link: '/student/study',
                 active: false,
                 icon: `
                     <svg xmlns="http://www.w3.org/2000/svg" width="14.114" height="16.776" viewBox="0 0 14.114 16.776" class='default-icon-fill'>
@@ -29,7 +29,7 @@ const adminMenu = [
             },
             {
                 title: 'Активність',
-                link: '/activity',
+                link: '/student/activity',
                 active: false,
                 icon: `
                     <svg xmlns="http://www.w3.org/2000/svg" width="17.152" height="17.166" viewBox="0 0 17.152 17.166" class='default-icon-fill'>

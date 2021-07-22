@@ -50,7 +50,7 @@
             this.api.getSecureData(`education/theme/${this.$route.params.id}`).then(response => { 
                 this.themeData = response
                 
-                return this.api.getSecureData(`education/theme/access/${this.themeData.id}`) 
+                return this.api.getSecureData(`education/theme/access/${this.$route.params.id}`) 
             }).then(response => this.themeAccess = response)
         }
     }

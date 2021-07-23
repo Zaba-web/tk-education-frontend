@@ -8,7 +8,7 @@
                 {{work.taskName}}
             </h3>
             <span class="p-like default-text-color sm-top-padding less-size">
-                {{work.created_at}} | {{work.userName}}
+                {{work.created_at}} | {{work.userName}} <span v-if="work.mark != null" class="mark-container bright-text-color bg-fill-secondary-accent">{{work.mark}}</span>
             </span>
         </router-link>
     </block>
@@ -27,3 +27,14 @@
         }
     }
 </script>
+
+<style lang="sass" scoped>
+.mark-container
+    padding: 0 10px
+    font-size: 10px
+    border-radius: 100px
+    position: absolute
+    top: -10px
+    left: -10px
+    cursor: default
+</style>

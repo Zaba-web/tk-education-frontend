@@ -53,12 +53,26 @@
                     </span>
                 </default-block>
                 <default-block block-width="67%">
-                    <h3 class="bright-text-color">Ваша активність:</h3>
+                    <h3 class="bright-text-color">Ваш прогрес:</h3>
                 </default-block>
             </inline-container>
         </dashboard-section>
         <dashboard-section title="Остання активність" subtitle="Останні виконані завдання" style="border: 0">
-
+            <dashboard-table :table-header="['Завдання', 'Перевірено', 'Дата здачі роботи', 'Оцінка']">
+                <tr v-for="(task, index) in activity" :key="index">
+                    <td class='p-like default-text-color less-size'>{{task.task}}</td>
+                    <td class='p-like default-text-color less-size'>
+                        <span :class="{
+                            'green-color': task.checked == 1,
+                            'yellow-color': task.checked == 0
+                        }">
+                            {{task.checked == 0 ? 'Ні' : 'Так'}}
+                        </span>
+                    </td>
+                    <td class='p-like default-text-color less-size'>{{task.date}}</td>
+                    <td class='p-like default-text-color less-size'>{{task.mark != null ? task.mark : '-'}}</td>
+                </tr>
+            </dashboard-table>
         </dashboard-section>
     </div>
 </template>
@@ -82,6 +96,7 @@
                 userData: {},
                 groupData: {},
                 schedule: [],
+                activity: [],
                 api: null
             }
         },
@@ -97,11 +112,15 @@
 
             this.api.getSecureData('user/userdata').then(response => {
                 this.userData = response
-
-                return this.api.getSecureData(`groups/single/${this.userData.id}`)
+                return this.api.getSecureData(`user/group`)
             }).then(response => { 
-                this.groupData = response 
+                this.groupData = response
+                console.log(this.groupData)
                 this.schedule = this.groupData.day_vn.split(';')
+                return this.api.getSecureData(`study/activity/10`)
+            }).then(response => {
+                for(let item in response.works) 
+                    this.activity.unshift(response.works[item])
             })
         }
     }

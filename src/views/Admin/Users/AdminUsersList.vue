@@ -1,6 +1,21 @@
 <template>
     <div>
         <dashboard-view-title subtitle="Перелік зареєстрованих користувачів">Користувачі</dashboard-view-title>
+        <dashboard-section title="Загальна інформація" subtitle="Коротка довідка стосовно роботи системи">
+            <default-block>
+               <inline-container>
+                   <instruction-item item-title="Гість" >
+                        Людина, яка зайшла на сайт без авторизації вважається гостем. Їм доступна тільки головна сторінка.
+                    </instruction-item>
+                    <instruction-item item-title="Учень">
+                        Після підтвердження профілю учень отримує доступ до учнівського осбистого кабінету.
+                   </instruction-item>
+                    <instruction-item item-title="Адміністратор">
+                        Адміністратор має повний доступ до всіх розділів та можливостей сайту.
+                   </instruction-item>
+               </inline-container>
+            </default-block>
+        </dashboard-section>
         <dashboard-section title="Список" subtitle="Зареєстрованих користувачів">
             <dashboard-table :table-header="['Дата реєстрації', 'ID', 'Ім\'я', 'Рівень доступу', 'Статус', 'Email', 'Операції']">
                 <tr v-for="(user, index) of users" :key="index" class="p-like sm-top-padding default-text-color less-size">

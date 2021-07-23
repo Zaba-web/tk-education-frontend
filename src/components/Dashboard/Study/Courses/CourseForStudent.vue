@@ -31,7 +31,7 @@
             title: String,
             description: String,
             id: Number,
-            themeCount: Number 
+            themeCount: Number
         }
     }
 </script>

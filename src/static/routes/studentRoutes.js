@@ -6,6 +6,8 @@ import StudentStudyTask from '@/views/Student/Study/StudentStudyTask.vue'
 
 import StudentActivity from '@/views/Student/StudentActivity.vue'
 
+import Settings from '@/views/Settings.vue'
+
 const studentRoutes = [
     {
         path: '',
@@ -31,6 +33,11 @@ const studentRoutes = [
         path: 'activity',
         name: 'student/activity',
         component: StudentActivity
+    },
+    {
+        path: 'settings',
+        name: 'student/settings',
+        component: Settings
     }
 ]
 

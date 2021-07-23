@@ -62,6 +62,7 @@
                             
                             switch(response.data.user.access_level){
                                 case 1:
+                                    this.$router.push("student")
                                     break;
                                 case 2:
                                     this.$router.push("admin")

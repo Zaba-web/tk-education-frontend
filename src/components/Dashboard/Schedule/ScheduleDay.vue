@@ -32,6 +32,10 @@
     display: flex
     position: relative
     z-index: 3
+
+    @media (max-width: $phone-big)
+        margin: 6px
+
     &::before
         content: ''
         width: 61px

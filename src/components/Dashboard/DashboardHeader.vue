@@ -61,6 +61,20 @@ header
     top: 0
     width: 78.5%
     z-index: 700
+
+    @media(max-width: $tablet-big)
+        width: 76.5%
+    
+    @media (max-width: $tablet-medium)
+        width: 90%
+
+    @media (max-width: 500px)
+        width: 87%
+
+    @media (max-width: $phone-small) 
+        width: 90%
+        padding-right: 30px
+
 .operation-icons-container
     display: flex
     gap: 20px

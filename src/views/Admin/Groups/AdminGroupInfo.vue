@@ -64,9 +64,6 @@
                 </tr>
             </dashboard-table>
         </dashboard-section>
-        <dashboard-section title="Останні роботи" subtitle="Останні надіслані роботи учнів даної групи">
-
-        </dashboard-section>
         <dashboard-section title="Розклад" subtitle="Оберіть дні, в які проходить виробниче навчання">
             <shcedule mode="edit" :group-id="groupData.id"></shcedule>
         </dashboard-section>

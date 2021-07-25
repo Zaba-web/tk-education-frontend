@@ -27,6 +27,10 @@
     margin-bottom: 15px
     animation: show-animation .7s forwards
 
+    @media (max-width: 600px)
+        max-width: 100%
+        width: 100%
+
     &::after
         content: ''
         position: absolute

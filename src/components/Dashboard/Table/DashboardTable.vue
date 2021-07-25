@@ -41,4 +41,5 @@
     animation: show-animation 1.5s forwards
 table
     width: 100%
+    min-width: 900px
 </style>

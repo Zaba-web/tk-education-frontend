@@ -1,5 +1,5 @@
 <template>
-    <block block-width="48%">
+    <block block-width="48%" class="container">
         <router-link :to="`/admin/works/check/${work.id}`" style="text-decoration: none">
             <span class="p-like default-text-color sm-top-padding less-size">
                 {{work.groupName}}
@@ -37,4 +37,8 @@
     top: -10px
     left: -10px
     cursor: default
+
+.container:not(:first-child)
+    @media (max-width: 600px)
+        margin-top: 15px    
 </style>

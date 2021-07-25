@@ -14,7 +14,7 @@
             <div class="slide-container">
                 <div class="slider-inner-container" ref="slider">
                     <div class="slider-item" v-for="(course, index) in courses" :key="index">
-                        <router-link style="text-decoration: none" :to="`/student/study/${course.id}`">
+                        <router-link style="text-decoration: none" :to="`/student/study/course/${course.id}`">
                             <h3 class="bright-text-color">{{course.name}}</h3>
                             <p class="default-text-color sm-top-padding less-size">
                                 {{course.description}}
@@ -65,6 +65,13 @@
     border-radius: 6px
     display: flex
     position: relative
+
+    @media (max-width: 600px)
+        display: none
+
+    @media (max-width: $tablet-medium)
+        width: 100%
+        margin-bottom: 25px
 
     & .student-welcome-slider, & .student-welcome-message-container, & .slider-item
         box-sizing: border-box

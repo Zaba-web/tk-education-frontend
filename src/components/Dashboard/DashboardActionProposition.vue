@@ -37,6 +37,14 @@
     position: relative
     background-size: cover !important
     background-position: top top !important
+
+    @media(max-width: 600px)
+        width: 48%
+        margin-top: 10px
+
+    @media(max-width: 500px)
+        width: 100%
+
     & .cover
         position: absolute
         width: 100%

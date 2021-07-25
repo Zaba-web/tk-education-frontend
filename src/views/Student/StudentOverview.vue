@@ -61,6 +61,7 @@
                             </div>
                             <span class="p-like default-text-color less-size sm-top-padding">{{course.name}}</span>
                         </div>
+                        <div class="bottom-line bg-fill-default"></div>
                     </div>
                 </default-block>
             </inline-container>
@@ -141,6 +142,10 @@
 </script>
 
 <style lang="sass" scoped>
+.welcome-container
+    @media (max-width: $tablet-medium)
+        display: none
+
 .day-container
     display: flex
     flex-wrap: wrap
@@ -154,6 +159,14 @@
     justify-content: center
     margin-top: 20px
     gap: 20px
+    position: relative
+
+.bottom-line
+    width: 100%
+    height: 2px
+    position: absolute
+    bottom: 0
+    left: 0
 
 .progress-item
     display: flex
@@ -167,11 +180,11 @@
 .progress-bar-container
     width: 29px
     height: 100%
-    overflow: hidden
     border-radius: 6px 6px 0 0
     position: relative
 
     & .progress-bar
+        border-radius: 6px 6px 0 0
         position: absolute
         width: 100%
         left: 0

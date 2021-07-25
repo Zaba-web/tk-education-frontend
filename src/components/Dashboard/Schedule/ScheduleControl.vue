@@ -24,6 +24,9 @@
 .schedule-wrapper
     width: 80%
     margin: auto
+    
+    @media (max-width: $tablet-small)
+        width: 90%
 </style>
 
 <script>

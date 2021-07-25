@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="outer-diagram-wrapper">
         <div class="diagram-wrapper bg-fill-block">
             <div class="diagram-body bg-fill-secondary-accent" :style="{'width': `${diagramWidth}%`}">
 
@@ -55,11 +55,22 @@
 </script>
 
 <style lang="sass" scoped>
+.outer-diagram-wrapper
+    @media(max-width: 600px)
+        width: 100%
+
 .diagram-wrapper
     width: 390px
     height: 30px
     border-radius: 10px
     overflow: hidden
+    
+    @media(max-width: 1280px)
+        width: 320px
+
+    @media(max-width: $tablet-medium)
+        width: 100%
+
     & .diagram-body
         height: 100%
         width: 0

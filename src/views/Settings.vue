@@ -5,7 +5,7 @@
         </dashboard-view-title>
         <dashboard-section title="Налаштування" subtitle="Заповніть форми для того, щоб щось змінити.">
             <inline-container>
-                <default-block block-width="48%">
+                <default-block block-width="48%" class="container">
                     <h3 class="bright-text-color">Змінити пароль</h3>
                     <br>
                     <form ref="form">
@@ -21,7 +21,7 @@
                         </button>
                     </form>
                 </default-block>
-                <default-block block-width="48%">
+                <default-block block-width="48%" class="container">
                     <h3 class="bright-text-color">Змінити Email</h3>
                     <br>
                     <form ref="form_email">
@@ -76,3 +76,9 @@
         }
     }
 </script>
+
+<style lang="sass" scoped>
+.container:not(:first-child)
+    @media (max-width: 600px)
+        margin-top: 15px  
+</style>

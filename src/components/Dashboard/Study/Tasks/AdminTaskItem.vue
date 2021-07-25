@@ -1,5 +1,5 @@
 <template>
-    <default-block block-width="350px">
+    <default-block block-width="320px">
         <div class="task-item-inner-container">
             <h3 class="bright-text-color">
                 {{task.title}}

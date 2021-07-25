@@ -42,6 +42,17 @@
     padding: 25px
     z-index: 750
 
+    @media(max-width: $tablet-medium)
+        width: 45vw
+        
+    @media (max-width: 600px)
+        width: 55vw
+
+    @media (max-width: $phone-big)
+        width: 100vw
+        max-width: 100vw
+        z-index: 9999
+
     & .close-contianer
         position: absolute
         right: 25px

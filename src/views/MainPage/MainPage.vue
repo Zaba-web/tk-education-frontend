@@ -64,9 +64,11 @@
             // detecting if user has an IOS device
             let isIOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
             
+            console.log(window.innerWidth)
+
             // if it is an IOS device or device that has small display then custom scroll wouldn't be applied
             if(isIOS || window.innerWidth <= 390) {
-                document.querySelector("body").style.overflowY = "scroll"
+                document.querySelector("html").style.overflowY = "scroll"
                 return ;
             }
 

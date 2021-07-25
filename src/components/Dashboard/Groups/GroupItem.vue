@@ -79,6 +79,10 @@
 <style lang="sass" scoped>
 .outer-container
     position: relative
+
+    @media(max-width: 600px)
+        width: 100%
+        
 .wait-for-approve
     width: 24px
     height: 24px

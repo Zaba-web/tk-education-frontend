@@ -59,7 +59,7 @@
                         <button>
                             Зарахувати
                         </button>
-                        <button type="button">
+                        <button type="button" @click="reject">
                             Відхилити
                         </button>
                     </form>
@@ -91,6 +91,22 @@
             }
         },
         
+        methods: {
+            reject() {
+                this.api.delete(`admin/check/reject/${this.$route.params.id}`)
+                .then(response => this.$store.commit('ADD_NEW_MESSAGE', response.data))
+                .catch(error => {
+                    this.$store.commit('ADD_NEW_MESSAGE', {
+                        title: "Серверна помилка",
+                        msg: "Відбулась критична помилка на стороні серверу. Перегляньте консоль для детальної інформації",
+                        type: "error"
+                    })
+
+                    console.error(error)
+                })
+            }
+        },
+
         mounted() {
             this.api = new API()
             this.api.getSecureData(`works/get/${this.$route.params.id}`).then(response => this.taskResult = response)

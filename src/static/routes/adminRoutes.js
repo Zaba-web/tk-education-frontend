@@ -18,6 +18,8 @@ import AdminWorksTasks from '@/views/Admin/Works/AdminWorksTasks.vue'
 import AdminCheckWork from '@/views/Admin/Works/AdminCheckWork.vue'
 import AdminUserWorks from '@/views/Admin/Works/AdminUserWorks.vue'
 
+import Settings from '@/views/Settings.vue'
+
 const adminRoutes = [
     {
         path: '',
@@ -88,6 +90,11 @@ const adminRoutes = [
         path: 'user/tasks/:id',
         name: 'admin/user/tasks',
         component: AdminUserWorks
+    },
+    {
+        path: 'settings',
+        name: 'admin/settings',
+        component: Settings
     }
 
 ]

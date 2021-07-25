@@ -54,6 +54,15 @@
                 </default-block>
                 <default-block block-width="67%">
                     <h3 class="bright-text-color">Ваш прогрес:</h3>
+                    <div class="progress-container">
+                        <div class="progress-item" v-for="(course, index) in progress" :key="index">
+                            <div class="progress-bar-container bg-fill-default">
+                                <div class="progress-bar bg-fill-secondary-accent" :style="{height: `${course.progress}%`}"></div>
+                            </div>
+                            <span class="p-like default-text-color less-size sm-top-padding">{{course.name}}</span>
+                        </div>
+                        <div class="bottom-line bg-fill-default"></div>
+                    </div>
                 </default-block>
             </inline-container>
         </dashboard-section>
@@ -97,6 +106,7 @@
                 groupData: {},
                 schedule: [],
                 activity: [],
+                progress: {},
                 api: null
             }
         },
@@ -115,22 +125,69 @@
                 return this.api.getSecureData(`user/group`)
             }).then(response => { 
                 this.groupData = response
-                console.log(this.groupData)
                 this.schedule = this.groupData.day_vn.split(';')
+
                 return this.api.getSecureData(`study/activity/10`)
             }).then(response => {
                 for(let item in response.works) 
                     this.activity.unshift(response.works[item])
+
+                return this.api.getSecureData(`education/courses/progress`)
+            }).then(response => {
+                this.progress = response
+                console.log(response)
             })
         }
     }
 </script>
 
 <style lang="sass" scoped>
+.welcome-container
+    @media (max-width: $tablet-medium)
+        display: none
+
 .day-container
     display: flex
     flex-wrap: wrap
     justify-content: center
     gap: 40px
     padding-top: 15px
+
+.progress-container
+    display: flex
+    height: 150px
+    justify-content: center
+    margin-top: 20px
+    gap: 20px
+    position: relative
+
+.bottom-line
+    width: 100%
+    height: 2px
+    position: absolute
+    bottom: 0
+    left: 0
+
+.progress-item
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    & span
+        height: 1px
+
+.progress-bar-container
+    width: 29px
+    height: 100%
+    border-radius: 6px 6px 0 0
+    position: relative
+
+    & .progress-bar
+        border-radius: 6px 6px 0 0
+        position: absolute
+        width: 100%
+        left: 0
+        bottom: 0
+
 </style>

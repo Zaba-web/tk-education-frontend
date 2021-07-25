@@ -10,10 +10,10 @@
                 <task-item v-for="(task, index) in tasksListOutput" :key="index" :task="task" @deletedSuccessful="loadAllTasks"></task-item>
             </transition-group>
 
-            <default-block block-width="350px">
+            <default-block block-width="320px">
                 <reloader @reload="loadAllTasks" selector-class="tasks-list-reload"></reloader>
             </default-block>
-            <default-block block-width="350px">
+            <default-block block-width="320px">
                 <router-link :to="`/admin/task/create/${this.$route.params.id}`">
                     <creater :decorative="true"></creater>
                 </router-link>

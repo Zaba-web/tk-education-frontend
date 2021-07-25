@@ -1,6 +1,6 @@
 <template>
     <div class="main-container bg-fill-default">
-        <div class="menu-wrapper menu-line">
+        <div class="menu-wrapper menu-line bg-fill-default" ref="menu" @click="closeMenu">
             <div class="menu-header">
                 <div class="menu-logo-container">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28.973" height="24.94" viewBox="0 0 28.973 24.94" class="menu-logo">
@@ -45,6 +45,18 @@
         <main>
             <div class="dashboard-content-wrapper">
                 <dashboard-header></dashboard-header>
+                <div class="menu-trigger-container bg-fill-secondary-accent" @click="showMenu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22.969" height="11.484" viewBox="0 0 22.969 11.484" class="default-icon-fill">
+                        <g id="menu_1_" data-name="menu(1)" transform="translate(0 -96.243)">
+                            <g id="Menu_1_2" data-name="Menu_1_" transform="translate(0 96.243)">
+                            <path id="Path_1137" data-name="Path 1137" d="M.718,97.679H22.251a.718.718,0,0,0,0-1.436H.718a.718.718,0,0,0,0,1.436Z" transform="translate(0 -96.243)"/>
+                            <path id="Path_1138" data-name="Path 1138" d="M22.251,180.455H.718a.718.718,0,0,0,0,1.436H22.251a.718.718,0,0,0,0-1.436Z" transform="translate(0 -175.431)"/>
+                            <path id="Path_1139" data-name="Path 1139" d="M135.376,264.667H121.021a.718.718,0,0,0,0,1.436h14.356a.718.718,0,0,0,0-1.436Z" transform="translate(-113.125 -254.618)"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="p-like sm-top-padding default-text-color ">Меню</span>
+                </div>
                 <slot></slot>
             </div>
             <sidebar-input-container></sidebar-input-container>
@@ -75,6 +87,14 @@
             setMenuActiveItem(groupIndex, itemIndex){
                 this.menu.map(group => group.items.map(item => item.active = false))
                 this.menu[groupIndex].items[itemIndex].active = true
+            },
+            showMenu(){
+                if(window.innerWidth <= 800)
+                    this.$refs.menu.style.left = 0
+            },
+            closeMenu(){
+                if(window.innerWidth <= 800)
+                    this.$refs.menu.style.left = "-100%"
             }
         },
         mounted(){
@@ -99,12 +119,43 @@
     height: 100vh
     display: grid
     grid-template-columns: 2fr 10fr
+
     @media (min-width: 2000px)
         grid-template-columns: 2fr 15fr
+
+    @media (max-width: $tablet-big)
+        grid-template-columns: 2fr 9fr
+
+    @media (max-width: $tablet-medium)
+        display: flex
+
+.menu-trigger-container
+    display: none
+    padding: 5px 15px
+    position: absolute
+    top: 50px
+    left: -10px
+    z-index: 3000
+    border-radius: 0 12px 12px 0
+
+    & > span
+        margin-left: 10px
+
+    @media (max-width: $tablet-medium)
+        display: block
+
 .menu-wrapper
     position: relative
     padding: 20px 0 15px 24px
     box-sizing: border-box
+
+    @media (max-width: $tablet-medium)
+        position: absolute
+        width: 100%
+        height: 100vh
+        z-index: 5000
+        transition: $transition-time
+        left: -100%
 
     & .menu-header
         display: flex
@@ -128,9 +179,16 @@
         
 main
     overflow-y: scroll
+    @media (max-width: $tablet-medium)
+        width: 100%
+    
 
 .dashboard-content-wrapper
     box-sizing: border-box
     padding: 10px 35px
     padding-top: 40px
+
+    @media (max-width: $phone-small) 
+        padding: 10px 10px
+        padding-top: 40px
 </style>

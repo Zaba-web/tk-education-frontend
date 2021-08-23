@@ -4,7 +4,7 @@
             Активність
         </dashboard-view-title>
         <dashboard-section title="Таблиця" subtitle="З даними про поточний стан надісланих вами робіт">
-            <dashboard-table :table-header="['Завдання', 'Перевірено', 'Дата здачі роботи', 'Оцінка']">
+            <dashboard-table :table-header="['Завдання', 'Перевірено', 'Дата здачі роботи', 'Оцінка', 'Коментар']">
                 <tr v-for="(task, index) in activity" :key="index">
                     <td class='p-like default-text-color less-size'>{{task.task}}</td>
                     <td class='p-like default-text-color less-size'>
@@ -17,6 +17,7 @@
                     </td>
                     <td class='p-like default-text-color less-size'>{{task.date}}</td>
                     <td class='p-like default-text-color less-size'>{{task.mark != null ? task.mark : '-'}}</td>
+                    <td class='p-like default-text-color less-size'>{{task.comment}}</td>
                 </tr>
             </dashboard-table>
         </dashboard-section>

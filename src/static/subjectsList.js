@@ -104,7 +104,7 @@ const subjectsDetailsData = [
         title: "Адміністрування",
         subTitle: "Керування сайтом",
         description: "Окрім процесу розробки сайту учень повинен засвоїти основні принципи роботи мережі та керування веб-сайтами.",
-        image: "js-img.png",
+        image: "adm-img.png",
         show: false,
         hide: false,
         aspects: [

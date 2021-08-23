@@ -7,6 +7,8 @@ import studentRoutes from '@/static/routes/studentRoutes'
 import AdminLayout from '@/views/Admin/AdminLayout.vue'
 import StudentLayout from '@/views/Student/StudentLayout.vue'
 
+import NotFoundError from '@/views/404.vue'
+
 import API from '@/libs/api'
 
 import store from '@/store/index'
@@ -39,6 +41,10 @@ const routes = [
 				router.push('/')
 			})
 		}
+	},
+	{
+		path: '/:pathMatch(.*)*',
+		component: NotFoundError
 	}
 ]
   

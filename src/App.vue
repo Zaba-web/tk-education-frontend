@@ -24,49 +24,49 @@
             	{
             		name: 'Виділення тексту',
             		tools: [
-            			{
-            				name: 'select_box', 
-            				title: "Select box", 
-            				displayContent: "| s |", 
-            				action(editorState, insertFunction, wrappingFunction) { 
-                      const wrappingFunctionResult = wrappingFunction()
+            		{
+						name: 'select_box', 
+						title: "Select box", 
+						displayContent: "| s |", 
+						action(editorState, insertFunction, wrappingFunction) { 
+							const wrappingFunctionResult = wrappingFunction()
 
-                      if(wrappingFunctionResult == null) {
-                          insertFunction(editorState.targetElement, "<div class='user-selected-box'><p>Введіть свій текст</p></div>")
-                        } else {
-                          const block = document.createElement("div")
-                          block.classList.add('user-selected-box')
-                          wrappingFunctionResult.append(block, wrappingFunctionResult.selectedText)
-                      }
+							if(wrappingFunctionResult == null) {
+								insertFunction(editorState.targetElement, "<div class='user-selected-box'><p>Введіть свій текст</p></div>")
+								} else {
+								const block = document.createElement("div")
+								block.classList.add('user-selected-box')
+								wrappingFunctionResult.append(block, wrappingFunctionResult.selectedText)
+							}
 
-            				}
-            			},
-                  {
-            				name: 'important_text', 
-            				title: "Important text", 
-            				displayContent: "!", 
-            				action(editorState, insertFunction) { 
-            					insertFunction(editorState.targetElement, `<div class='user-important-notice'><p>Введіть свій текст</p></div>`)
-            				}
-            			},
-                  {
-            				name: 'selected_text', 
-            				title: "Selected text", 
-            				displayContent: "s", 
-            				action(editorState, insertFunction, wrappingFunction) { 
-                      const wrappingFunctionResult = wrappingFunction()
+						}
+            		},
+                  	{
+						name: 'important_text', 
+						title: "Important text", 
+						displayContent: "!", 
+						action(editorState, insertFunction) { 
+							insertFunction(editorState.targetElement, `<div class='user-important-notice'><p>Введіть свій текст</p></div>`)
+						}
+            		},
+                  	{
+            			name: 'selected_text', 
+            			title: "Selected text", 
+            			displayContent: "s", 
+            			action(editorState, insertFunction, wrappingFunction) { 
+							const wrappingFunctionResult = wrappingFunction()
 
-                      if(wrappingFunctionResult == null) {
-                          insertFunction(editorState.targetElement, "<strong class='user-text-selected'>Введіть свій текст</strong>")
-                        } else {
-                          const strong = document.createElement("strong")
-                          strong.classList.add('user-text-selected')
-                          wrappingFunctionResult.append(strong, wrappingFunctionResult.selectedText)
-                      }
-            				}
+							if(wrappingFunctionResult == null) {
+								insertFunction(editorState.targetElement, "<strong class='user-text-selected'>Введіть свій текст</strong>")
+								} else {
+								const strong = document.createElement("strong")
+								strong.classList.add('user-text-selected')
+								wrappingFunctionResult.append(strong, wrappingFunctionResult.selectedText)
+							}
             			}
-            		]
-            	}
+            		}
+				]
+            }
           ]
         }
       }

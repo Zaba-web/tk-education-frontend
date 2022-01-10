@@ -50,7 +50,7 @@
 
             <dashboard-section title="Теоретичні відомості" subtitle="Введіть теоретичну частину завдання (у випадку, якщо це передбачено обраним режимом перевірки)">
                 <default-block block-width="100%">
-                    <div class="editor-container">
+                    <div class="editor-container dashboard-text-content">
                         <VSTEdit :display-group-name="false" input-name="theory" :theme="editorTheme" />
                     </div>
                 </default-block>
@@ -58,7 +58,7 @@
 
             <dashboard-section title="Практичне завдання" subtitle="Введіть практичну частину завдання (у випадку, якщо це передбачено обраним режимом перевірки)">
                 <default-block block-width="100%">
-                    <div class="editor-container">
+                    <div class="editor-container dashboard-text-content">
                         <VSTEdit :display-group-name="false" input-name="task" :theme="editorTheme" />
                     </div>
                 </default-block>

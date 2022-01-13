@@ -25,10 +25,14 @@
                             Що ми вивчаємо
                         </button>
                         <button class="accent-button">
-                            Реєстрація
+                            <router-link to="SignUp">
+                                Реєстрація
+                            </router-link>
                         </button>
                         <button class="accent-button">
-                            Авторизація
+                             <router-link to="SignIn">
+                                Авторизація
+                            </router-link>
                         </button>
                         <decorative-line height="300px" left="0" top="0" animation-delay="1.5s" color="#fff"></decorative-line>
                     </span>

@@ -19,16 +19,16 @@
                     <h3 class="accent-yellow">Матеріали</h3>
                     <ul class="flex-list">
                         <li>
-                            <a href="#" class="gray-color non-dec">Курс «HTML»‎</a>
+                            <a href="http://web.edjoy.info/student/" class="gray-color non-dec" target="_blank">Курс «HTML»</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">Курс «CSS»‎</a>
+                            <a href="http://web.edjoy.info/student/" class="gray-color non-dec" target="_blank">Курс «CSS»</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">Курс «Javascript»‎‎</a>
+                            <a href="http://web.edjoy.info/student/" class="gray-color non-dec" target="_blank">Курс «Javascript»</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">Курс «Адміністрування та контент-менеджмент»‎</a>
+                            <a href="http://web.edjoy.info/student/" class="gray-color non-dec" target="_blank">Курс «Адміністрування та контент-менеджмент»</a>
                         </li>
                     </ul>
                 </div>
@@ -36,45 +36,45 @@
                     <h3 class="accent-yellow">Корисні посилання</h3>
                     <ul class="flex-list">
                         <li>
-                            <a href="#" class="gray-color non-dec">Методична комісія комп'ютерних професій‎</a>
+                            <a href="http://edu.tk.te.ua/okg" class="gray-color non-dec" target="_blank">Методична комісія комп'ютерних професій</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">Can I use‎‎</a>
+                            <a href="https://caniuse.com" class="gray-color non-dec" target="_blank">Can I use</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">Mozila Developer Network</a>
+                            <a href="https://developer.mozilla.org/" class="gray-color non-dec" target="_blank">Mozila Developer Network</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">W3 Consortium</a>
+                            <a href="https://www.w3.org" class="gray-color non-dec" target="_blank">W3 Consortium</a>
                         </li>
                         <li>
-                            <a href="#" class="gray-color non-dec">
+                            <a href="http://edu.tk.te.ua/okg" class="gray-color non-dec" target="_blank">
                                 Навчальний сайт "Основи комп'ютерної 
                                 графіки та веб-дизайну"
-                            ‎</a>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div>
                     <div class="image-container">
                         <div>
-                            <a href="#">
+                            <a href="http://edu.tk.te.ua/okg" target="_blank">
                                 <img src="@/assets/images/mkkp.svg" alt="Методична комісія комп'ютерних професій ТК ТНТУ">
                             </a>
                         </div>
                         <div>
-                            <a href="#">
+                            <a href="http://edu.tk.te.ua/okg" target="_blank">
                                 <img src="@/assets/images/okg.svg" alt="Комп'ютерна графіка ТК ТНТУ">
                             </a>
                         </div>
                         <div>
-                            <a href="#">
+                            <a href="https://developer.mozilla.org/" target="_blank">
                                 <img src="@/assets/images/mdn.svg" alt="MDN">
                             </a>
                         </div>
                         <div>
-                            <a href="#">
-                                <img src="@/assets/images/w3s.svg" alt="W3S">
+                            <a href="https://www.w3.org" target="_blank">
+                                <img src="@/assets/images/w3s.svg" alt="W3C">
                             </a>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
         </div>
         <div class="copyright">
             <p class="gray-color small-text">
-                domen.com | Навчальний сайт з виробничого навчання (веб-розробка) © 2021
+                web.edjoy.info | Навчальний сайт з виробничого навчання (веб-розробка) © 2021
             </p>
             <p class="gray-color small-text">
                 Публікація контенту на інших ресурсах можлива тільки з вказанням авторства.

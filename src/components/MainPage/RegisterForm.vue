@@ -161,10 +161,15 @@
                         name: this.name,
                         group: this.group
                     }).then(response => {
-                        if(response.data.registered)
-                            this.registerStatus = "Ви успішно зареєструвались"
+                        if(response.data.registered) {
+                            this.registerStatus = "Ви успішно зареєструвались..."
+
+                            setTimeout(()=>{
+                                this.$router.push("MainPage")
+                            }, 1500)
+                        }
                     }).catch(error => {
-                        console.log(error)
+                        console.error(error)
                         this.registerStatus = "Відбулась помилка при реєстрації"
                     })
                 } else {

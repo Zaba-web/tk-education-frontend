@@ -53,16 +53,16 @@ button
     font-size: 16px
     cursor: pointer
 
-     & > a
-        text-decoration: none
-	position: relative
-	z-index: 3
-
     &.button-disabled
         cursor: not-allowed
 
     & + &
         margin-left: 35px
+
+    & > a
+        text-decoration: none
+        position: relative
+        z-index: 4
 
     &:hover
         &::before

@@ -165,7 +165,7 @@
                             this.registerStatus = "Ви успішно зареєструвались..."
 
                             setTimeout(()=>{
-                                this.$router.push("MainPage")
+                                this.$router.push("/")
                             }, 1500)
                         }
                     }).catch(error => {

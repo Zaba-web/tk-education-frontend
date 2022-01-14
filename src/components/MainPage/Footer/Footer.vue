@@ -36,7 +36,7 @@
                     <h3 class="accent-yellow">Корисні посилання</h3>
                     <ul class="flex-list">
                         <li>
-                            <a href="http://edu.tk.te.ua/okg" class="gray-color non-dec" target="_blank">Методична комісія комп'ютерних професій</a>
+                            <a href="http://mkkp.tk.te.ua" class="gray-color non-dec" target="_blank">Методична комісія комп'ютерних професій</a>
                         </li>
                         <li>
                             <a href="https://caniuse.com" class="gray-color non-dec" target="_blank">Can I use</a>
@@ -58,7 +58,7 @@
                 <div>
                     <div class="image-container">
                         <div>
-                            <a href="http://edu.tk.te.ua/okg" target="_blank">
+                            <a href="http://mkkp.tk.te.ua" target="_blank">
                                 <img src="@/assets/images/mkkp.svg" alt="Методична комісія комп'ютерних професій ТК ТНТУ">
                             </a>
                         </div>
